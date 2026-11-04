@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRODUCTOS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="/CSS/styles.css">
+
+  <style type="text/tailwindcss">
+    @theme static {
+      --color-fondo: #ffffff;
+      --color-superficie: #f3f0ec;  
+      --color-texto: #1c1a17;
+      --color-suave: #6b645b;
+      --color-acento: #3b6a8c;      
+      --color-borde: #ddd6cc;
+      --color-damasco: #3b6a8c;    
+      --color-oro: #c9a35c;          
+
+      --font-rotulo: "Cinzel Decorative", Georgia, serif;
+      --font-texto: "Lato", system-ui, sans-serif;
+    }
+  </style>
+
+</head>
+
+<body class="font-texto bg-fondo text-texto">
+
+     <main>
+   
+    <section id="productos" aria-labelledby="titulo-productos">
+
+     
+      <div class="damasco h-14 sm:h-20" aria-hidden="true"></div>
+      <div class="bg-fondo py-10 sm:py-14 text-center overflow-hidden">
+        <h1 id="titulo-productos" class="titulo-banner font-rotulo text-3xl sm:text-5xl tracking-widest">Productos</h1>
+      </div>
+      <div class="damasco damasco-inverso h-14 sm:h-20" aria-hidden="true"></div>
+
+    
+      <div class="mx-auto max-w-5xl px-8 py-16 sm:px-10 sm:py-24">
+        <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-14 sm:gap-x-10">
+
+          <li data-aos="fade-up">
+            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
+              <figure>
+                <div class="marco bg-superficie"><img src="/media/img/libros_cuero.png" alt="Cuadernos de piel azul y marrón" data-emoji="📔" loading="lazy"></div>
+                <figcaption class="rotulo-producto">Cuadernos de piel</figcaption>
+              </figure>
+            </a>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="100">
+            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
+              <figure>
+                <div class="marco bg-superficie"><img src="/media/img/tarjetas.png" alt="Tarjetas con ilustraciones científicas" data-emoji="🗂️" loading="lazy"></div>
+                <figcaption class="rotulo-producto">Tarjetas</figcaption>
+              </figure>
+            </a>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="200">
+            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
+              <figure>
+                <div class="marco bg-superficie"><img src="/media/img/popup.png" alt="Popup de un velero dentro de una botella" data-emoji="⛵" loading="lazy"></div>
+                <figcaption class="rotulo-producto">Popups</figcaption>
+              </figure>
+            </a>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="300">
+            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
+              <figure>
+                <div class="marco bg-superficie"><img src="/media/img/funda.png" alt="Funda roja con grullas y cierre de botón" data-emoji="🧵" loading="lazy"></div>
+                <figcaption class="rotulo-producto">Fundas</figcaption>
+              </figure>
+            </a>
+          </li>
+
+          <li data-aos="fade-up">
+            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
+              <figure>
+                <div class="marco bg-superficie"><img src="/media/img/lapices.png" alt="Lápices y minas en cajas de colores" data-emoji="✏️" loading="lazy"></div>
+                <figcaption class="rotulo-producto">Escritura</figcaption>
+              </figure>
+            </a>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="100">
+            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
+              <figure>
+                <div class="marco bg-superficie"><img src="/media/img/encendedor.png" alt="Cajas de cerillas con un búho y flores" data-emoji="🕯️" loading="lazy"></div>
+                <figcaption class="rotulo-producto">Cerillas</figcaption>
+              </figure>
+            </a>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="200">
+            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
+              <figure>
+                <div class="marco bg-superficie"><img src="/media/img/cuadernos.png" alt="Cuadernos de colores con una abeja" data-emoji="📓" loading="lazy"></div>
+                <figcaption class="rotulo-producto">Cuadernos</figcaption>
+              </figure>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+  </main>
+
+<main>
+  <section id="novedades" aria-labelledby="titulo-novedades">
+      <div class="mx-auto max-w-4xl px-8 sm:px-10 pt-14 pb-16 sm:pt-20 sm:pb-24">
+
+        <h2 id="titulo-novedades" class="font-rotulo text-3xl sm:text-5xl tracking-widest text-center" data-aos="fade-down">Novedades</h2>
+
+       
+        <ul class="mt-14 sm:mt-20 grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-14 sm:gap-x-10">
+
+          <li data-aos="fade-up">
+            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
+              <figure>
+                <div class="marco-novedad">
+                  <div class="marco bg-superficie"><img src="img/globos-terraqueos.png" alt="Globo terráqueo con peana metálica" data-emoji="🌍" loading="lazy"></div>
+                </div>
+                <figcaption class="rotulo-producto">Globos terráqueos</figcaption>
+              </figure>
+            </a>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="100">
+            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
+              <figure>
+                <div class="marco-novedad">
+                  <div class="marco bg-superficie"><img src="img/cuentos.png" alt="Cuento ilustrado con una figura de guitarrista" data-emoji="📚" loading="lazy"></div>
+                </div>
+                <figcaption class="rotulo-producto">Cuentos</figcaption>
+              </figure>
+            </a>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="200">
+            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
+              <figure>
+                <div class="marco-novedad">
+                  <div class="marco bg-superficie"><img src="img/cromos.png" alt="Hoja de cromos troquelados con ilustraciones" data-emoji="🎴" loading="lazy"></div>
+                </div>
+                <figcaption class="rotulo-producto">Cromos</figcaption>
+              </figure>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+
+    <section id="horario" class="bg-salvia text-fondo" aria-labelledby="titulo-horario">
+      <h2 id="titulo-horario" class="sr-only">Horario y ubicación</h2>
+
+      <div class="mx-auto max-w-2xl px-6 py-20 sm:py-28 text-center space-y-16">
+
+        <div class="bloque-info" data-aos="fade-up">
+          <h3 class="font-bold text-base sm:text-lg">Tienda Física:</h3>
+          <address class="mt-4 not-italic text-base sm:text-lg">C. del Noviciado, 9, Centro, 28015 Madrid</address>
+        </div>
+
+        <div class="bloque-info" data-aos="fade-up" data-aos-delay="150">
+          <h3 class="font-bold text-base sm:text-lg">Horario de Atención:</h3>
+          <ul class="mt-4 space-y-1 text-base sm:text-lg">
+            <li>Lunes a Viernes: <span class="whitespace-nowrap">11:00 – 14:00</span> / <span class="whitespace-nowrap">17:00 – 20:00</span></li>
+            <li>Sábados: <span class="whitespace-nowrap">11:00 – 14:00</span></li>
+            <li>Domingos: Cerrado</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+
+
+     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
