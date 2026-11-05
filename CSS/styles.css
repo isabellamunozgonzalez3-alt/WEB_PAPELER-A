@@ -102,7 +102,7 @@
         position: absolute;
         inset: 0;
         z-index: 2;
-        background: url("../media/img/marco\ novedades.png") center / 100% 100% no-repeat;
+        background: url("../media/img/marco\ novedades.webp") center / 100% 100% no-repeat;
         pointer-events: none;
     }
 
@@ -152,7 +152,7 @@
         position: absolute;
         inset: 0;
         z-index: -1;
-        background: url("../media/img/botanico.png") center / cover no-repeat;
+        background: url("../media/img/botanico.webp") center / cover no-repeat;
         opacity: .25;
         -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 30%);
         mask-image: linear-gradient(to bottom, transparent 0%, #000 30%);
