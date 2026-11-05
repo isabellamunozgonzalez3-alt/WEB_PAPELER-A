@@ -157,3 +157,54 @@
 @media (prefers-reduced-motion: reduce) {
     .bloque-info.aos-animate::before { animation: none; }
 }
+
+
+
+@layer components {
+
+   
+    .footer-botanico {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        background-color: var(--color-salvia);
+    }
+    .footer-botanico::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: url("../media/img/botanico.png") center / cover no-repeat;
+        opacity: .4;
+        -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 30%);
+        mask-image: linear-gradient(to bottom, transparent 0%, #000 30%);
+        animation: deriva 30s ease-in-out infinite alternate;
+    }
+
+   
+    .enlace-footer {
+        text-decoration: underline;
+        text-decoration-color: rgb(255 255 255 / .6);
+        text-underline-offset: 4px;
+        transition: text-underline-offset .25s ease, text-decoration-color .25s ease, color .25s ease;
+    }
+    @media (hover: hover) {
+        .enlace-footer:hover {
+            text-decoration-color: var(--color-oro);
+            text-underline-offset: 7px;
+            color: var(--color-superficie);
+        }
+    }
+}
+
+
+@keyframes deriva {
+    from { transform: scale(1); }
+    to   { transform: scale(1.08); }
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+    .footer-botanico::before { animation: none; }
+}

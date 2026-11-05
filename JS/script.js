@@ -34,3 +34,7 @@ $(function () {
         if (img.complete && img.naturalWidth === 0) respaldo();
     });
 });
+
+$(function () {
+    AOS.init({ duration: 800, once: true, offset: 60, easing: 'ease-out-cubic' });
+});
