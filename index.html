@@ -20,16 +20,16 @@
 
   <style type="text/tailwindcss">
     @theme static {
-      --color-fondo: #ffffff;
-      --color-superficie: #f3f0ec;  
-      --color-texto: #1c1a17;
-      --color-suave: #6b645b;
-      --color-acento: #3b6a8c;      
-      --color-borde: #ddd6cc;
-      --color-damasco: #3b6a8c;    
-      --color-oro: #c9a35c;          
-      --color-salvia: #a3ab90;
-      --font-texto: "Lato", system-ui, sans-serif;
+        --color-fondo: #ffffff;       /* blanco */
+        --color-texto: #000000;       /* negro */
+        --color-niebla: #e6eee6;      /* verde claro: fondo de horario */
+        --color-salvia: #678e79;      /* verde: footer, detalles */
+        --color-acento: #678e79;      /* hover y focus, mismo verde */
+        --color-superficie: #f3f0ec;  
+        --color-suave: #000000;
+        --color-borde: #e6eee6;
+        --color-oro: #e6eee6;
+        --color-damasco: #678e79;
     }
   </style>
 
@@ -43,10 +43,10 @@
 
      
 
-      <div class="bg-fondo pt-20 sm:pb-10 sm:pt-20 sm:pb-14 text-center overflow-hidden">
+      <div class="bg-fondo pt-20 sm:pt-10 sm:pb-14 text-center overflow-hidden">
         
-        <h1 id="titulo-productos" class="titulo-banner relative isolate w-fit mx-auto font-rotulo text-3x1 sm:text-5x1 tracking-windset mb-4 sm:mb-6">
-            <img src="media/img/ilustracion_1.png"
+        <h1 id="titulo-productos" class="titulo-banner relative isolate mx-auto mb-4 sm:mb-6">
+            <img src="media/img/ilustracion_1.png" alt="Productos" class="mx-auto h-auto w-[min(73vw,36rem)]">
         </h1>
 
       </div>
@@ -124,48 +124,63 @@
     </section>
     
     
-    <section id="novedades" class="overflow-x-clip" aria-labelledby="titulo-novedades">
-        <div class="mx-auto max-w-4xl px-8 sm:px-10 pt-24 pb-40 sm:pt-20 sm:pb-40">
+    <section id="Novedades" class="overflow-x-clip"  aria-labelledby="titulo-novedades">
+        <div class="mx-auto max-w-3xl px-8 sm:px-10 pt-24 pb-32 sm:pt-28 sm:pb-40">
             
-            <h2 id="titulo-novedades" class="relative isolate w-fit max-auto font-rotulo text-3x1 sm:text-5x1 tracking-widest text-center" dta-aos="fade-down">
-                <img src="media/img/ilustracion_2.png"
+            <h2 id="titulo-novedades" class="mx-auto text-center" data-aos="fade-down">
+                <img src="media/img/ilustracion_2.png" alt="Novedades" class="mx-auto h-auto w-[min(65vw, 32rem)]">
+
             </h2>
             
-            <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-24 sm:mt-40 gap-x-6 gap-y-14 sm:gap-x-10">
+           <ul class="mt-14 sm:mt-20 grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-14 sm:gap-x-10">
 
-          <li data-aos="fade-up">
-            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
-              <figure>
-                <div class="marco bg-superficie"><img src="media/img/globo.png" alt="Cuadernos de piel azul y marrón" loading="lazy"></div>
-                <figcaption class="rotulo-producto">Cuadernos de piel</figcaption>
-              </figure>
-            </a>
-          </li>
+                <li data-aos="fade-up">
+                    <a href="#" class="tarjeta block focus-visible:outline-2  focus-visible:outline-acento">
+                        <figure>
+                            <div class="marco-novedad">
+                                <div class="marco"><img src="media/img/globo.png" alt="Globos terráqueos" loading="lazy"></div>
+                            </div>
+                            <figcaption class="rotulo-producto" >Globos terráqueos</figcaption>
+                        </figure>
 
-          <li data-aos="fade-up" data-aos-delay="100">
-            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
-              <figure>
-                <div class="marco bg-superficie"><img src="media/img/cuentos.png" alt="Tarjetas con ilustraciones científicas" loading="lazy"></div>
-                <figcaption class="rotulo-producto">Tarjetas</figcaption>
-              </figure>
-            </a>
-          </li>
+                    </a>
+                </li>
 
-          <li data-aos="fade-up" data-aos-delay="200">
-            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
-              <figure>
-                <div class="marco bg-superficie"><img src="media/img/elefantes.png" alt="Popup de un velero dentro de una botella" loading="lazy"></div>
-                <figcaption class="rotulo-producto">Popups</figcaption>
-              </figure>
-            </a>
-          </li>
+                 <li data-aos="fade-up" data-aos-delay="100">
+                    <a href="#" class="tarjeta block focus-visible:outline-2  focus-visible:outline-acento">
+                        <figure>
+                            <div class="marco-novedad">
+                                <div class="marco"><img src="media/img/cuentos.png" alt="Cuentos" loading="lazy"></div>
+                            </div>
+                            <figcaption class="rotulo-producto" >Cuentos</figcaption>
+                        </figure>
+
+                    </a>
+                </li>
+
+                 <li data-aos="fade-up" data-aos-delay="200">
+                    <a href="#" class="tarjeta block focus-visible:outline-2  focus-visible:outline-acento">
+                        <figure>
+                            <div class="marco-novedad">
+                                <div class="marco"><img src="media/img/elefantes.png" alt="Elefantes" loading="lazy"></div>
+                            </div>
+                            <figcaption class="rotulo-producto" >Elefantes</figcaption>
+                        </figure>
+
+                    </a>
+                </li>
+
+                
+           </ul>
+
+          
             
         
         </div>
     </section>
     
     
-    <section id="horario" class="bg-salvia text-fondo" aria-labelledby="titulo-horario">
+    <section id="horario" class="bg-salvia/25 text-salvia" aria-labelledby="titulo-horario">
         <h2 id="titulo-horario" class="sr-only">Horario y ubicación</h2>
         
         <div class="mx-auto max-w-2xl px-6 py-20 sm:py-28 text-center space-y-16">
@@ -187,11 +202,14 @@
         </div>
     </section>
 
+
+</main>
+
     <footer class="footer-botanico text-fondo" aria-label="Pie de página">
     <div class="mx-auto max-w-2xl px-6 py-20 sm:py-28 text-center flex flex-col items-center gap-14">
 
      
-      <img src="media/img/bomagui.png" alt="Plan de Recuperación, Transformación y Resiliencia" class="h-12 w-auto" loading="lazy">
+      <img src="media/img/bomagui.png" alt="bomagui" class="h-12 w-auto" loading="lazy">
 
    
       <address class="not-italic text-sm sm:text-base leading-relaxed" data-aos="fade-up" data-aos-delay="100">
@@ -218,7 +236,6 @@
     </div>
   </footer>
     
-    </main>
     
      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>

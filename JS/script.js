@@ -17,13 +17,6 @@ $(function () {
             });
     }
 
-    $(window).on('scroll', function () {
-        const px = Math.min($(this).scrollTop() * 0.02, 5) + 'px';
-        document.querySelectorAll('.damasco').forEach(function (el) {
-            el.style.setProperty('--desplazo', px);
-        });
-    });
-
     
     $('.marco img').each(function () {
         const img = this;
@@ -33,8 +26,4 @@ $(function () {
         $(img).on('error', respaldo);
         if (img.complete && img.naturalWidth === 0) respaldo();
     });
-});
-
-$(function () {
-    AOS.init({ duration: 800, once: true, offset: 60, easing: 'ease-out-cubic' });
 });

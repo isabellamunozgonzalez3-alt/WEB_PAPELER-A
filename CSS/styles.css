@@ -7,24 +7,6 @@
 }
 
 @layer components {
-
-    
-    .damasco {
-        position: relative;
-        overflow: hidden;
-        background-color: var(--color-damasco);
-    }
-    .damasco::before {
-        content: "";
-        position: absolute;
-        inset: -12% 0;
-        background: url("../media/img/patron_damasco.jpg") center / cover no-repeat;
-        translate: 0 var(--desplazo, 0px);      
-    }
-
-    
-  
-
   
     .marco {
         --tam-img: 78%;
@@ -110,28 +92,26 @@
     50%      { transform: translateY(-6px) rotate(1deg) scale(1.07); }
 }
 
+@layer components {
 
+    .marco-novedad .marco { --tam-img: 100%; }
 
-@media (prefers-reduced-motion: reduce) {
-    .damasco::before,
-    .titulo-banner,
-    .tarjeta:hover .marco img,
-    .tarjeta:hover .marco::after { animation: none; }
+   
+    .marco-novedad .marco::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        background: url("../media/img/marco\ novedades.png") center / 100% 100% no-repeat;
+        pointer-events: none;
+    }
+
+  
+    .tarjeta:hover .marco-novedad .marco { box-shadow: none; }
 }
 
 
-
-
 @layer components {
-
-    
-    .marco-novedad {
-        padding: 4px;
-        border: 1px solid var(--color-borde);
-        transition: border-color .3s;
-    }
-   
-    .marco-novedad .marco { --tam-img: 100%; }
 
     .bloque-info::before {
         content: "";
@@ -143,10 +123,6 @@
         opacity: .6;
     }
     .bloque-info.aos-animate::before { animation: trazar .8s .4s ease both; }
-
-    @media (hover: hover) {
-        .tarjeta:hover .marco-novedad { border-color: var(--color-acento); }
-    }
 }
 
 @keyframes trazar {
@@ -157,6 +133,8 @@
 @media (prefers-reduced-motion: reduce) {
     .bloque-info.aos-animate::before { animation: none; }
 }
+
+
 
 
 
@@ -175,7 +153,7 @@
         inset: 0;
         z-index: -1;
         background: url("../media/img/botanico.png") center / cover no-repeat;
-        opacity: .4;
+        opacity: .25;
         -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 30%);
         mask-image: linear-gradient(to bottom, transparent 0%, #000 30%);
         animation: deriva 30s ease-in-out infinite alternate;
