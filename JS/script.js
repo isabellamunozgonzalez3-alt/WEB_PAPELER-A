@@ -17,7 +17,6 @@ $(function () {
             });
     }
 
-  
     $(window).on('scroll', function () {
         const px = Math.min($(this).scrollTop() * 0.02, 5) + 'px';
         document.querySelectorAll('.damasco').forEach(function (el) {
@@ -25,6 +24,7 @@ $(function () {
         });
     });
 
+    
     $('.marco img').each(function () {
         const img = this;
         function respaldo() {

@@ -20,12 +20,10 @@
         inset: -12% 0;
         background: url("../media/img/patron_damasco.jpg") center / cover no-repeat;
         translate: 0 var(--desplazo, 0px);      
-        animation: respirar 20s ease-in-out infinite alternate;
     }
-    .damasco-inverso::before { animation-direction: alternate-reverse; }
 
     
-    .titulo-banner { animation: aparecer-titulo 1.1s cubic-bezier(.2, .8, .2, 1) both; }
+  
 
   
     .marco {
@@ -68,18 +66,7 @@
         text-transform: uppercase;
         transition: color .25s;
     }
-    .rotulo-producto::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 1px;
-        background: var(--color-oro);
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform .35s ease;
-    }
+    
 
    .tarjeta:active .marco { transform: scale(.97); }
 
@@ -97,7 +84,7 @@
         .tarjeta:hover .marco::after { animation: destello .9s ease; }
         .tarjeta:hover .marco img { animation: flotar 2.4s ease-in-out infinite; }
         .tarjeta:hover .rotulo-producto { color: var(--color-acento); }
-        .tarjeta:hover .rotulo-producto::after { transform: scaleX(1); }
+    
     }
 
     @media (min-width: 640px) {
