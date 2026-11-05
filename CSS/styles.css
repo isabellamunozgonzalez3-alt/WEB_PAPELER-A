@@ -26,7 +26,7 @@
         object-fit: contain;
         filter: drop-shadow(0 8px 10px rgb(0 0 0 / .18));
     }
-    .marco .emoji-respaldo { font-size: 3rem; }
+    
 
   
     .marco::after {
