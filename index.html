@@ -16,6 +16,9 @@
   <link rel="stylesheet" href="css/styles.css">
 
   <style type="text/tailwindcss">
+    
+    @custom-variant dark (&:where(.dark, .dark *));
+
     @theme static {
         --color-fondo: #ffffff;       /* blanco */
         --color-texto: #000000;       /* negro */
@@ -44,7 +47,7 @@
       <div class="bg-fondo pt-10 sm:pt-10 sm:pb-14 text-center overflow-hidden">
         
         <h1 id="titulo-productos" class="titulo-banner relative isolate mx-auto mb-4 sm:mb-6">
-            <img src="media/img/ilustracion_1.webp" alt="Productos" class="mx-auto h-auto w-[min(100vw,50rem)]">
+            <img src="media/img/ilustracion_1.webp" alt="Productos" class="mx-auto h-auto w-[min(100vw,50rem)] dark:invert">
         </h1>
 
       </div>
@@ -126,7 +129,7 @@
         <div class="mx-auto max-w-3xl px-8 sm:px-10 pt-24 pb-32 sm:pt-28 sm:pb-40">
             
             <h2 id="titulo-novedades" class="mx-auto text-center" data-aos="fade-down">
-                <img src="media/img/ilustracion_2.webp" alt="Novedades" class="mx-auto h-auto w-[min(65vw,32rem)]">
+                <img src="media/img/ilustracion_2.webp" alt="Novedades" class="mx-auto h-auto w-[min(65vw,32rem)] dark:invert">
 
             </h2>
             
@@ -203,7 +206,7 @@
 
 </main>
 
-    <footer class="footer-botanico text-fondo" aria-label="Pie de página">
+    <footer class="footer-botanico text-white" aria-label="Pie de página">
     <div class="mx-auto max-w-2xl px-6 py-20 sm:py-28 text-center flex flex-col items-center gap-14">
 
      
