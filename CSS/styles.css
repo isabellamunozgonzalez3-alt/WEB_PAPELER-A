@@ -4,6 +4,17 @@
 
 @layer base {
     :focus-visible { outline-offset: 4px; }
+    
+        .dark {
+        --color-fondo: #121815;
+        --color-texto: #f2f5f2;
+        --color-superficie: #1d2420;
+        --color-suave: #c9d3cc;
+        --color-borde: #2e3a33;
+        --color-niebla: #1d2a23;
+        --color-acento: #8fc0a5;
+        color-scheme: dark;
+    }
 }
 
 @layer components {
@@ -108,6 +119,8 @@
 
   
     .tarjeta:hover .marco-novedad .marco { box-shadow: none; }
+    
+    .dark .marco-novedad .marco::before { filter: invert(1); }
 }
 
 
@@ -186,3 +199,4 @@
 @media (prefers-reduced-motion: reduce) {
     .footer-botanico::before { animation: none; }
 }
+
