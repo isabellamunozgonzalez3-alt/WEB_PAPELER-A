@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -162,11 +161,14 @@
 
                 <div class="about-frame">
 
-                    <img
-                        src="media/marco1.svg"
-                        class="frame-decoration"
-                        alt=""
-                        aria-hidden="true">
+                    <picture>
+                        <source media="(min-width: 768px)" srcset="media/marco2.svg">
+                        <img
+                            src="media/marco1.svg"
+                            class="frame-decoration"
+                            alt=""
+                            aria-hidden="true">
+                    </picture>
 
                     <p>
                         En Bomagui celebramos el papel bien hecho:
@@ -193,104 +195,75 @@
         <!-- PUBLICACIONES -->
         <section class="press-section" id="publicaciones">
 
-            <div class="press-heading">
-
-                <p>BOMAGUI EN LOS MEDIOS</p>
-
-                <h2>Han hablado de nosotros</h2>
-
-            </div>
-
+            <h2 class="press-heading">SE HABLA DE NOSOTROS</h2>
 
             <div class="press-layout">
 
-                <!-- LISTADO DE PUBLICACIONES -->
+                <!-- LOGOS (archivos SVG en media/) -->
                 <div class="press-list">
 
                     <button
                         class="press-item active"
-                        data-title="Abre en Madrid la tienda para los amantes de la papelería"
-                        data-source="Condé Nast Traveler · 2021"
+                        aria-label="Time Out Madrid"
+                        data-source="Time Out Madrid"
+                        data-quote="“Una papelería de aire retro, llena de encanto y cosas bonitas.”"
+                        data-excerpt="Si alguna vez soñaste con una papelería bonita, seguramente ésta sea muy parecida."
+                        data-url="https://www.timeout.es/madrid/es/tiendas/bomagui">
+                        <img src="media/timeoutlogo.svg" alt="Time Out">
+                    </button>
+
+                    <button
+                        class="press-item"
+                        aria-label="Condé Nast Traveler"
+                        data-source="Condé Nast Traveler"
+                        data-quote="“Abre en Madrid la tienda para los amantes de la papelería”"
                         data-excerpt="Una papelería que recupera el encanto de los objetos de siempre, poniendo en valor la artesanía, la calidad y los pequeños detalles."
                         data-url="https://www.traveler.es/experiencias/articulos/bomagui-madrid-nueva-papeleria-donde-esta/21339">
-
-                        <span>01</span>
-                        <span>CONDÉ NAST TRAVELER</span>
-                        <span class="press-arrow">↗</span>
-
+                        <img src="media/condelogo.svg" alt="Condé Nast Traveler">
                     </button>
-
 
                     <button
                         class="press-item"
-                        data-title="Bomagui: la papelería que recupera el encanto de lo artesanal"
-                        data-source="El Generacional · 2023"
+                        aria-label="Madrid Secreto"
+                        data-source="Madrid Secreto"
+                        data-quote="“Las mejores papelerías de Madrid: desde invitaciones de boda hasta encuadernación a mano”"
+                        data-excerpt="Si te interesa cual es el grosor del papel, no te sirve cualquier boli y cada año compras con ilusión una agenda, estas tiendas son para ti."
+                        data-url="#"><!-- TODO: cita, texto y enlace reales -->
+                        <img src="media/secretologo.svg" alt="Madrid Secreto">
+                    </button>
+
+                    <button
+                        class="press-item"
+                        aria-label="El Generacional"
+                        data-source="El Generacional"
+                        data-quote="“Bomagui: la papelería que recupera el encanto de lo artesanal”"
                         data-excerpt="Un espacio dedicado a la papelería artesanal, los productos personalizados y la nostalgia."
                         data-url="https://elgeneracionalpost.com/cultura/2023/0718/99374/bomagui-papeleria-artesanal-regalos-madrid.html">
-
-                        <span>02</span>
-                        <span>EL GENERACIONAL</span>
-                        <span class="press-arrow">↗</span>
-
-                    </button>
-
-
-                    <button
-                        class="press-item"
-                        data-title="Bomagui"
-                        data-source="Time Out Madrid · 2025"
-                        data-excerpt="Time Out destaca el carácter retro de la tienda y su combinación de encuadernación artesanal y marcas cuidadosamente seleccionadas."
-                        data-url="https://www.timeout.es/madrid/es/tiendas/bomagui">
-
-                        <span>03</span>
-                        <span>TIME OUT MADRID</span>
-                        <span class="press-arrow">↗</span>
-
-                    </button>
-
-
-                    <button
-                        class="press-item"
-                        data-title="Preciosa papelería en Conde Duque"
-                        data-source="Yosílosé · 2023"
-                        data-excerpt="Una visita a Bomagui y a su colección de agendas, álbumes, cuadernos, papeles y objetos especiales."
-                        data-url="https://www.yosilose.com/recomendaciones/q/bomagui/">
-
-                        <span>04</span>
-                        <span>YOSÍLOSÉ</span>
-                        <span class="press-arrow">↗</span>
-
+                        <img src="media/eglogo.svg" alt="El Generacional">
                     </button>
 
                 </div>
 
-
-                <!-- VISTA PREVIA DEL ARTÍCULO -->
+                <!-- VISTA PREVIA -->
                 <div class="press-preview">
 
-                    <span class="press-source">
-                        CONDÉ NAST TRAVELER · 2021
-                    </span>
+                    <div class="press-preview-inner">
 
-                    <h3>
-                        Abre en Madrid la tienda para los amantes de la papelería
-                    </h3>
+                        <h3 class="press-source">Time Out Madrid</h3>
 
-                    <p>
-                        Una papelería que recupera el encanto de los objetos
-                        de siempre, poniendo en valor la artesanía, la calidad
-                        y los pequeños detalles.
-                    </p>
+                        <p class="press-quote">“Una papelería de aire retro, llena de encanto y cosas bonitas.”</p>
 
-                    <a
-                        class="press-read"
-                        href="https://www.traveler.es/experiencias/articulos/bomagui-madrid-nueva-papeleria-donde-esta/21339"
-                        target="_blank"
-                        rel="noopener noreferrer">
+                        <p class="press-text">Si alguna vez soñaste con una papelería bonita, seguramente ésta sea muy parecida.</p>
 
-                        LEER ARTÍCULO ↗
+                        <a
+                            class="press-read"
+                            href="https://www.timeout.es/madrid/es/tiendas/bomagui"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            LEER ARTÍCULO <span aria-hidden="true">↗</span>
+                        </a>
 
-                    </a>
+                    </div>
 
                 </div>
 
@@ -299,12 +272,6 @@
         </section>
 
     </main>
-
-
-    <!-- FOOTER -->
-    <footer id="contacto">
-
-    </footer>
 
 
 </body>

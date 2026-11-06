@@ -1,4 +1,3 @@
-
 /* ========================================
    1. LOGO AL HACER SCROLL
 ======================================== */
@@ -157,4 +156,44 @@ if (menuToggle && floatingMenu) {
 
     });
 
+}
+
+
+/* ========================================
+   5. PUBLICACIONES: VISTA PREVIA
+======================================== */
+
+const pressItems = document.querySelectorAll(".press-item");
+const pressPreview = document.querySelector(".press-preview");
+
+if (pressItems.length && pressPreview) {
+
+    const previewSource = pressPreview.querySelector(".press-source");
+    const previewQuote = pressPreview.querySelector(".press-quote");
+    const previewText = pressPreview.querySelector(".press-text");
+    const previewLink = pressPreview.querySelector(".press-read");
+
+    pressItems.forEach(item => {
+
+        item.addEventListener("click", function () {
+
+            if (item.classList.contains("active")) return;
+
+            pressItems.forEach(i => i.classList.remove("active"));
+            item.classList.add("active");
+
+            pressPreview.classList.add("is-changing");
+
+            setTimeout(function () {
+                previewSource.textContent = item.dataset.source;
+                previewQuote.textContent = item.dataset.quote;
+                previewText.textContent = item.dataset.excerpt;
+                previewLink.href = item.dataset.url;
+
+                pressPreview.classList.remove("is-changing");
+            }, 200);
+
+        });
+
+    });
 }

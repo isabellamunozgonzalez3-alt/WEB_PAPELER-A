@@ -1,4 +1,3 @@
-
 /* ========================================
    1. GENERAL
 ======================================== */
@@ -40,14 +39,19 @@ header {
     padding: 0 20px;
     background-color: transparent;
 
-    transition:
-        height 0.4s ease,
-        background-color 0.4s ease;
+    transition: height 0.4s ease;
+
+    /* el header transparente no debe bloquear clics en el contenido */
+    pointer-events: none;
+}
+
+header .logo,
+header .menu-toggle {
+    pointer-events: auto;
 }
 
 header.scrolled {
     height: 70px;
-    background-color: #D9EBD6;
 }
 
 
@@ -102,15 +106,24 @@ header.scrolled .logo img {
     align-items: stretch;
 
     padding: 0;
-    border: none;
+    border: 1px solid transparent;
     background: transparent;
 
     cursor: pointer;
+
+    transition:
+        width 0.4s ease,
+        height 0.4s ease,
+        padding 0.4s ease,
+        background-color 0.4s ease,
+        border-color 0.4s ease;
 }
 
 .menu-toggle span {
+    position: relative;
+    z-index: 1;
     display: block;
-    width: 25px;
+    width: 100%;
     height: 2px;
     min-height: 2px;
 
@@ -121,6 +134,36 @@ header.scrolled .logo img {
         transform 0.3s ease,
         opacity 0.3s ease;
 }
+
+/* BOTÓN CON MARCO DOBLE AL HACER SCROLL (igual que los botones de portada) */
+
+header.scrolled .menu-toggle {
+    box-sizing: border-box;
+    width: 40px;
+    height: 36px;
+    padding: 8px 7px;
+
+    border-color: #000;
+    background-color: #fff;
+}
+
+.menu-toggle::before {
+    content: "";
+
+    position: absolute;
+    inset: 3px;
+
+    border: 1px solid #000;
+    background-color: #D9EBD6;
+
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+header.scrolled .menu-toggle::before {
+    opacity: 1;
+}
+
 
 /* HAMBURGUESA CONVERTIDA EN X */
 
@@ -509,7 +552,9 @@ header.scrolled .logo img {
 }
 
 
-/* MARCO DE TEXTO */
+/* MARCO DE TEXTO
+   El marco (SVG) define el tamaño; el texto se coloca encima
+   y su tamaño de letra escala con el ancho del marco. */
 
 .about-frame {
     position: relative;
@@ -517,35 +562,31 @@ header.scrolled .logo img {
     width: calc(100% - 26px);
     max-width: 500px;
 
-    aspect-ratio: 366 / 465;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 12%;
+    container-type: inline-size;
 }
 
+.about-frame picture,
 .frame-decoration {
-    position: absolute;
-    inset: 0;
+    display: block;
 
     width: 100%;
-    height: 100%;
+    height: auto;
 
-    object-fit: fill;
     pointer-events: none;
 }
 
 .about-frame p {
-    position: relative;
-    z-index: 1;
+    position: absolute;
+    inset: 0;
 
-    width: 100%;
-    max-width: 390px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12%;
 
     font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(12px, 3.5vw, 15px);
+    font-size: clamp(11px, 4cqw, 22px);
     font-weight: 400;
     line-height: 1.3;
 
@@ -593,11 +634,8 @@ header.scrolled .logo img {
     }
 
     .about-frame {
-        max-width: 440px;
-    }
-
-    .about-frame p {
-        font-size: 16px;
+        width: calc(100% - 60px);
+        max-width: 760px;
     }
 
     .floating-menu {
@@ -619,5 +657,192 @@ header.scrolled .logo img {
     *::after {
         scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* ========================================
+   12. ANCLAS (compensan el header fijo)
+======================================== */
+
+#conocenos,
+#publicaciones {
+    scroll-margin-top: 70px;
+}
+
+
+/* ========================================
+   13. PUBLICACIONES
+======================================== */
+
+.press-section {
+    width: 100%;
+    padding: 40px 20px 60px;
+    background-color: #fff;
+}
+
+.press-heading {
+    max-width: 900px;
+    margin: 0 auto 28px;
+
+    font-family: "Lato", system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+}
+
+.press-layout {
+    max-width: 900px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    min-height: 340px;
+}
+
+
+/* LOGOS */
+
+.press-list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    padding-right: 18px;
+    border-right: 1px solid #000;
+}
+
+.press-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    filter: grayscale(1);
+    opacity: 0.4;
+    transition: opacity 0.25s ease;
+}
+
+.press-item img {
+    display: block;
+    width: 100%;
+    max-height: 46px;
+    object-fit: contain;
+}
+
+.press-item:hover,
+.press-item:focus-visible,
+.press-item.active {
+    opacity: 1;
+    outline: none;
+}
+
+
+/* TEXTO */
+
+.press-preview {
+    padding-left: 20px;
+}
+
+.press-preview-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    transition: opacity 0.2s ease;
+}
+
+.press-preview.is-changing .press-preview-inner {
+    opacity: 0;
+}
+
+.press-source {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.press-quote {
+    margin-top: 6px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.press-text {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.press-read {
+    align-self: flex-end;
+    margin-top: 28px;
+
+    color: #000;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+.press-read span {
+    display: inline-block;
+    margin-left: 4px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.press-read:hover,
+.press-read:focus-visible {
+    color: #678e79;
+    outline: none;
+}
+
+@media (min-width: 768px) {
+
+    .press-section {
+        padding: 80px 30px 100px;
+    }
+
+    .press-heading {
+        font-size: 13px;
+        margin-bottom: 45px;
+    }
+
+    .press-layout {
+        grid-template-columns: 150px 1fr;
+        min-height: 420px;
+    }
+
+    .press-list {
+        gap: 34px;
+        padding-right: 30px;
+    }
+
+    .press-item img {
+        max-height: 60px;
+    }
+
+    .press-preview {
+        padding-left: 50px;
+        max-width: 560px;
+    }
+
+    .press-source {
+        font-size: 17px;
+    }
+
+    .press-quote {
+        font-size: 26px;
+    }
+
+    .press-text {
+        font-size: 14px;
     }
 }
