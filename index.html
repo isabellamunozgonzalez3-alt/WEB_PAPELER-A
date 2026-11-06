@@ -15,6 +15,19 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link rel="stylesheet" href="css/styles.css">
 
+   <script>
+        (function () {
+            document.documentElement.classList.add("js");
+            try {
+                var guardado = localStorage.getItem("tema");
+                var sistema = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                if (guardado === "dark" || (!guardado && sistema)) {
+                    document.documentElement.classList.add("dark");
+                }
+            } catch (e) {}
+        })();
+    </script>
+
   <style type="text/tailwindcss">
     
     @custom-variant dark (&:where(.dark, .dark *));
@@ -36,9 +49,283 @@
 
 </head>
 
-<body class="font-texto bg-fondo text-texto">
+<body class="font-texto bg-fondo text-texto class="bg-menta font-texto text-texto dark:bg-noche dark:text-niebla">
 
-     <main>
+     <header>
+
+        <a href="index.html" class="logo">
+            <img src="media/logoL.svg" alt="Bomagui">
+        </a>
+
+        <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Activar modo oscuro"
+            aria-pressed="false">
+
+            <svg class="size-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+            </svg>
+
+            <svg class="hidden size-5 dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+            </svg>
+
+        </button>
+
+        <button
+            class="menu-toggle"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="floating-menu">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </header>
+
+    <main>
+    <!-- MENÚ FLOTANTE -->
+    <nav
+        class="floating-menu fixed text-texto top-[65px] right-[15px] z-[302] aspect-[330/350] w-[min(90vw,330px)] md:top-[75px] md:right-[25px] md:w-[330px]"
+        id="floating-menu"
+        aria-label="Navegación principal">
+
+        <img
+            src="media/menufloat.svg"
+            class="pointer-events-none absolute inset-0 size-full object-fill"
+            alt=""
+            aria-hidden="true">
+
+        <div class="absolute inset-0 flex flex-col items-center px-[13%] pt-[15%] pb-[20%]">
+
+            <a href="index.html" class="mb-[8%] flex w-full items-center justify-center">
+                <img src="media/logosin.svg" alt="Bomagui" class="block h-auto w-[115px] max-w-[65%]">
+            </a>
+
+            <ul class="flex w-full flex-col">
+                <li><a href="index.html" class="flex min-h-[29px] items-center border-b border-texto px-2.5 py-1 text-[17px] leading-[1.2] transition-colors hover:bg-white/35 focus-visible:bg-white/35">INICIO</a></li>
+                <li><a href="tienda.html" class="flex min-h-[29px] items-center border-b border-texto px-2.5 py-1 text-[17px] leading-[1.2] transition-colors hover:bg-white/35 focus-visible:bg-white/35">TIENDA</a></li>
+                <li><a href="#conocenos" class="flex min-h-[29px] items-center border-b border-texto px-2.5 py-1 text-[17px] leading-[1.2] transition-colors hover:bg-white/35 focus-visible:bg-white/35">CONÓCENOS</a></li>
+                <li><a href="#publicaciones" class="flex min-h-[29px] items-center border-b border-texto px-2.5 py-1 text-[17px] leading-[1.2] transition-colors hover:bg-white/35 focus-visible:bg-white/35">PUBLICACIONES</a></li>
+                <li><a href="#encargos" class="flex min-h-[29px] items-center border-b border-texto px-2.5 py-1 text-[17px] leading-[1.2] transition-colors hover:bg-white/35 focus-visible:bg-white/35">ENCARGOS</a></li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+        <!-- PORTADA -->
+        <section class="hero relative h-svh snap-start min-h-[600px] w-full bg-menta [clip-path:inset(0)] dark:bg-noche">
+
+            <h1 class="sr-only">Bomagui, papelería artesanal en Madrid</h1>
+
+            <div class="carousel">
+
+                <img
+                    src="media/port1.jpg"
+                    class="carousel-image active absolute inset-0 size-full object-cover object-center"
+                    alt="Imagen de portada de Bomagui">
+
+                <img
+                    src="media/cuadernos.webp"
+                    class="carousel-image absolute inset-0 size-full object-cover object-center"
+                    alt="Productos de papelería de Bomagui">
+
+                <img
+                    src="media/popup.webp"
+                    class="carousel-image absolute inset-0 size-full object-cover object-center"
+                    alt="Selección de productos de Bomagui">
+
+            </div>
+
+            <nav
+                class="absolute bottom-[12%] z-10 flex w-full flex-col items-center gap-[9px] px-5 sm:flex-row sm:justify-center sm:gap-3 sm:px-[30px] lg:gap-4"
+                aria-label="Accesos rápidos">
+
+                <a href="tienda.html" class="hero-button relative flex h-[37px] w-3/4 max-w-[220px] items-center p-[3px] text-[11px] tracking-[1px] sm:h-[34px] sm:w-[155px] sm:max-w-[155px] sm:text-[10px] lg:h-10 lg:w-[190px] lg:max-w-[190px] lg:text-[11px]">
+                    <span class="flex size-full items-center justify-start pl-2 text-left">TIENDA</span>
+                    <span class="button-arrow absolute top-1/2 right-2.5 -translate-y-1/2 text-[17px] leading-none font-light sm:text-base lg:text-lg">↗</span>
+                </a>
+
+                <a href="#encargos" class="hero-button relative flex h-[37px] w-3/4 max-w-[220px] items-center p-[3px] text-[11px] tracking-[1px] sm:h-[34px] sm:w-[155px] sm:max-w-[155px] sm:text-[10px] lg:h-10 lg:w-[190px] lg:max-w-[190px] lg:text-[11px]">
+                    <span class="flex size-full items-center justify-start pl-2 text-left">ENCARGOS</span>
+                    <span class="button-arrow absolute top-1/2 right-2.5 -translate-y-1/2 text-[17px] leading-none font-light sm:text-base lg:text-lg">↗</span>
+                </a>
+
+                <a href="#conocenos" class="hero-button relative flex h-[37px] w-3/4 max-w-[220px] items-center p-[3px] text-[11px] tracking-[1px] sm:h-[34px] sm:w-[155px] sm:max-w-[155px] sm:text-[10px] lg:h-10 lg:w-[190px] lg:max-w-[190px] lg:text-[11px]">
+                    <span class="flex size-full items-center justify-start pl-2 text-left">CONÓCENOS</span>
+                    <span class="button-arrow absolute top-1/2 right-2.5 -translate-y-1/2 text-[17px] leading-none font-light sm:text-base lg:text-lg">↗</span>
+                </a>
+
+            </nav>
+
+        </section>
+
+
+        <!-- CONÓCENOS -->
+        <section
+            class="relative min-h-svh w-full snap-start bg-fondo pt-[125px] pb-[55px] dark:bg-bosque md:pt-[145px] md:pb-20 lg:pt-[170px] lg:pb-28"
+            id="conocenos">
+
+            <a
+                href="#conocenos-contenido"
+                class="absolute -top-[37px] left-1/2 flex h-[75px] w-[150px] -translate-x-1/2 items-start justify-center rounded-t-[30px] bg-fondo pt-[7px] text-texto dark:bg-bosque dark:text-niebla"
+                aria-label="Bajar a Conócenos">
+                <span class="font-[Arial,sans-serif] text-[26px] leading-none font-light">↓</span>
+            </a>
+
+            <div class="about-content flex w-full flex-col items-center" id="conocenos-contenido">
+
+                <h2 class="mb-[65px] text-center font-titulo text-xl font-normal md:mb-[75px] md:text-2xl lg:text-[28px]">CONÓCENOS</h2>
+
+                <div class="@container relative w-[calc(100%-26px)] max-w-[500px] md:w-[calc(100%-60px)] md:max-w-[760px] lg:max-w-[900px]">
+
+                    <picture class="block w-full">
+                        <source media="(min-width: 768px)" srcset="media/marco2.svg">
+                        <img
+                            src="media/marco1.svg"
+                            class="pointer-events-none block h-auto w-full dark:invert"
+                            alt=""
+                            aria-hidden="true">
+                    </picture>
+
+                    <p class="absolute inset-0 flex items-center justify-center p-[12%] text-center font-titulo text-[clamp(11px,4cqw,22px)] leading-[1.3]">
+                        En Bomagui celebramos el papel bien hecho:
+                        álbumes, libretas y cajas encuadernadas a
+                        mano, papeles marmoleados y una selección
+                        muy cuidada de papelería de aquí y de Europa.
+                        Somos un espacio de barrio —entre Malasaña
+                        y Conde Duque— donde encontrar regalos
+                        especiales, plumas para caligrafía, postales
+                        únicas y piezas que duran muchos años.
+                        Si buscas un álbum de fotos a medida, un libro
+                        de firmas o invitaciones con papel artesanal, te
+                        ayudamos a elegir materiales y acabados para
+                        que cada detalle tenga sentido.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PUBLICACIONES -->
+        <section class="flex min-h-svh w-full snap-start flex-col justify-center bg-fondo px-5 pt-[100px] pb-[60px] dark:bg-bosque md:px-[30px] md:pt-[110px] md:pb-[80px]" id="publicaciones">
+
+            <h2 data-reveal class="mx-auto mb-7 w-full max-w-[900px] text-xs lg:max-w-[1000px] font-normal tracking-[1.5px] md:mb-[45px] md:text-[13px]">SE HABLA DE NOSOTROS</h2>
+
+            <div class="mx-auto grid min-h-[340px] w-full max-w-[900px] grid-cols-[90px_1fr] sm:grid-cols-[120px_1fr] md:min-h-[420px] md:grid-cols-[150px_1fr] lg:min-h-[480px] lg:max-w-[1000px] lg:grid-cols-[180px_1fr]">
+
+                <div data-reveal="izquierda" style="--retraso: 0.1s" class="flex flex-col gap-[22px] border-r border-texto pr-[18px] dark:border-niebla sm:gap-7 sm:pr-6 md:gap-[34px] md:pr-[30px]">
+
+                    <button
+                        class="press-item active flex items-center justify-center"
+                        aria-label="Time Out Madrid"
+                        data-source="Time Out Madrid"
+                        data-quote="“Una papelería de aire retro, llena de encanto y cosas bonitas.”"
+                        data-excerpt="Si alguna vez soñaste con una papelería bonita, seguramente ésta sea muy parecida."
+                        data-url="https://www.timeout.es/madrid/es/tiendas/bomagui">
+                        <img src="media/timeoutlogo.svg" alt="Time Out" class="max-h-[46px] w-full object-contain sm:max-h-[52px] md:max-h-[60px] lg:max-h-[72px] dark:invert">
+                    </button>
+
+                    <button
+                        class="press-item flex items-center justify-center"
+                        aria-label="Condé Nast Traveler"
+                        data-source="Condé Nast Traveler"
+                        data-quote="“Abre en Madrid la tienda para los amantes de la papelería”"
+                        data-excerpt="Una papelería que recupera el encanto de los objetos de siempre, poniendo en valor la artesanía, la calidad y los pequeños detalles."
+                        data-url="https://www.traveler.es/experiencias/articulos/bomagui-madrid-nueva-papeleria-donde-esta/21339">
+                        <img src="media/condelogo.svg" alt="Condé Nast Traveler" class="max-h-[46px] w-full object-contain sm:max-h-[52px] md:max-h-[60px] lg:max-h-[72px] dark:invert">
+                    </button>
+
+                    <button
+                        class="press-item flex items-center justify-center"
+                        aria-label="Madrid Secreto"
+                        data-source="Madrid Secreto"
+                        data-quote="“Las mejores papelerías de Madrid: desde invitaciones de boda hasta encuadernación a mano”"
+                        data-excerpt="Si te interesa cual es el grosor del papel, no te sirve cualquier boli y cada año compras con ilusión una agenda, estas tiendas son para ti."
+                        data-url="#">
+                        <img src="media/secretologo.svg" alt="Madrid Secreto" class="max-h-[46px] w-full object-contain sm:max-h-[52px] md:max-h-[60px] lg:max-h-[72px] dark:invert">
+                    </button>
+
+                    <button
+                        class="press-item flex items-center justify-center"
+                        aria-label="El Generacional"
+                        data-source="El Generacional"
+                        data-quote="“Bomagui: la papelería que recupera el encanto de lo artesanal”"
+                        data-excerpt="Un espacio dedicado a la papelería artesanal, los productos personalizados y la nostalgia."
+                        data-url="https://elgeneracionalpost.com/cultura/2023/0718/99374/bomagui-papeleria-artesanal-regalos-madrid.html">
+                        <img src="media/eglogo.svg" alt="El Generacional" class="max-h-[46px] w-full object-contain sm:max-h-[52px] md:max-h-[60px] lg:max-h-[72px] dark:invert">
+                    </button>
+
+                </div>
+
+                <article data-reveal style="--retraso: 0.2s" class="press-preview max-w-[560px] pl-5 sm:pl-8 md:pl-[50px] lg:max-w-[640px]" aria-live="polite">
+
+                    <div class="press-preview-inner flex flex-col gap-4">
+
+                        <h3 class="press-source font-titulo text-[15px] font-normal md:text-[17px] lg:text-lg">Time Out Madrid</h3>
+
+                        <p class="press-quote mt-1.5 font-titulo text-[19px] leading-[1.3] font-bold italic sm:text-[22px] md:text-[26px] lg:text-[30px]">“Una papelería de aire retro, llena de encanto y cosas bonitas.”</p>
+
+                        <p class="press-text text-xs leading-normal sm:text-[13px] md:text-sm lg:text-base">Si alguna vez soñaste con una papelería bonita, seguramente ésta sea muy parecida.</p>
+
+                        <a
+                            class="press-read mt-7 self-end text-[11px] tracking-[1px] transition-colors hover:text-salvia focus-visible:text-salvia"
+                            href="https://www.timeout.es/madrid/es/tiendas/bomagui"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            LEER ARTÍCULO <span class="ml-1 text-base font-bold" aria-hidden="true">↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- ENCARGOS -->
+        <section class="flex min-h-svh w-full snap-start flex-col justify-center bg-menta px-5 pt-[100px] pb-[60px] dark:bg-noche md:px-[30px] md:pt-[110px] md:pb-[80px]" id="encargos">
+
+            <h2 data-reveal class="mb-10 text-center font-titulo text-xl font-normal md:mb-[60px] md:text-2xl">ENCARGOS</h2>
+
+            <div class="mx-auto grid w-full max-w-[900px] gap-4 md:grid-cols-3 md:gap-6 lg:max-w-[1000px] lg:gap-8">
+
+                <article data-reveal="zoom" style="--retraso: 0.1s" class="border border-texto bg-fondo p-[3px] transition-transform duration-300 hover:-translate-y-1 dark:border-niebla dark:bg-noche">
+                    <div class="h-full border border-texto bg-menta p-6 dark:border-niebla dark:bg-bosque lg:p-8">
+                        <h3 class="mb-3 font-titulo text-lg font-normal lg:text-xl">Álbumes de fotos a medida</h3>
+                        <p class="text-sm leading-normal lg:text-base">Álbumes encuadernados a mano. Te ayudamos a elegir materiales y acabados para que cada detalle tenga sentido.</p>
+                    </div>
+                </article>
+                <article data-reveal="zoom" style="--retraso: 0.25s" class="border border-texto bg-fondo p-[3px] transition-transform duration-300 hover:-translate-y-1 dark:border-niebla dark:bg-noche">
+                    <div class="h-full border border-texto bg-menta p-6 dark:border-niebla dark:bg-bosque lg:p-8">
+                        <h3 class="mb-3 font-titulo text-lg font-normal lg:text-xl">Libros de firmas</h3>
+                        <p class="text-sm leading-normal lg:text-base">Libros de firmas para bodas y celebraciones, con papeles artesanales y encuadernación cuidada.</p>
+                    </div>
+                </article>
+                <article data-reveal="zoom" style="--retraso: 0.4s" class="border border-texto bg-fondo p-[3px] transition-transform duration-300 hover:-translate-y-1 dark:border-niebla dark:bg-noche">
+                    <div class="h-full border border-texto bg-menta p-6 dark:border-niebla dark:bg-bosque lg:p-8">
+                        <h3 class="mb-3 font-titulo text-lg font-normal lg:text-xl">Invitaciones</h3>
+                        <p class="text-sm leading-normal lg:text-base">Invitaciones con papel artesanal para que el primer detalle de tu evento ya sea especial.</p>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
    
     <section id="productos" aria-labelledby="titulo-productos">
 
@@ -243,5 +530,9 @@
 
     
     <script src="js/script.js"></script>
+</body>
+</html>
+
+
 </body>
 </html>
