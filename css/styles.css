@@ -1,544 +1,202 @@
-
 @layer theme, base, components, utilities;
 
+
+
 @layer base {
-
-    html {
-        scroll-behavior: smooth;
-    }
-
-    :focus-visible {
-        outline: 2px solid var(--color-texto);
-        outline-offset: 3px;
+    :focus-visible { outline-offset: 4px; }
+    
+        .dark {
+        --color-fondo: #121a15;
+        --color-texto: #f2f5f2;
+        --color-superficie: #121a15;
+        --color-suave: #c9d3cc;
+        --color-borde: #2e3a33;
+        --color-niebla: #1d2a23;
+        --color-acento: #8fc0a5;
+        color-scheme: dark;
     }
 }
 
-
 @layer components {
+  
+    .marco {
+        --tam-img: 78%;
+        position: relative;
+        aspect-ratio: 3 / 4;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        transition: box-shadow .35s, transform .35s;
+    }
+    .marco img {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: var(--tam-img);
+        height: var(--tam-img);
+        object-fit: contain;
+        filter: drop-shadow(0 8px 10px rgb(0 0 0 / .18));
+    }
+    
 
-
-    header {
-
-        --hdr-gap: 8px;
-        --hdr-pad: 14px;
-        --logo-w: 150px;
-        --logo-w-s: 100px;
-        --tt-size: 24px;
-        --tb-w: 32px;
-        --tb-h: 32px;
-        --tb-pad-y: 5px;
-        --tb-pad-x: 4px;
-        --tb-inset: 2px;
-
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 300;
-
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-
-        width: 100%;
-        height: 150px;
-        gap: var(--hdr-gap);
-        padding: 0 var(--hdr-pad);
-
-        transition: height 0.4s ease;
+  
+    .marco::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(110deg, transparent 35%, rgb(255 255 255 / .55) 50%, transparent 65%);
+        transform: translateX(-120%);
         pointer-events: none;
     }
 
-    header .logo,
-    header .menu-toggle,
-    header .theme-toggle {
-        pointer-events: auto;
+    .rotulo-producto {
+        position: relative;
+        display: inline-block;
+        margin-top: .8rem;
+        padding-bottom: .2rem;
+        font-size: .7rem;               
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        transition: color .25s;
     }
+    
 
-    header.scrolled {
-        height: 70px;
+   .tarjeta:active .marco { transform: scale(.97); }
+
+   
+    .tarjeta:focus-visible .marco { transform: translateY(-4px); }
+    .tarjeta:focus-visible .rotulo-producto { color: var(--color-acento); }
+
+    .tilt-activo { transition: transform .1s linear; }
+
+    @media (hover: hover) {
+        .tarjeta:hover .marco {
+            box-shadow: 0 14px 30px -10px rgb(31 58 82 / .45);
+            transform: translateY(-6px);
+        }
+        .tarjeta:hover .marco::after { animation: destello .9s ease; }
+        .tarjeta:hover .marco img { animation: flotar 2.4s ease-in-out infinite; }
+        .tarjeta:hover .rotulo-producto { color: var(--color-acento); }
+    
     }
 
     @media (min-width: 640px) {
-
-        header {
-            --hdr-gap: 14px;
-            --hdr-pad: 20px;
-            --logo-w: 180px;
-            --logo-w-s: 120px;
-            --tt-size: 28px;
-            --tb-w: 40px;
-            --tb-h: 36px;
-            --tb-pad-y: 7px;
-            --tb-pad-x: 7px;
-            --tb-inset: 3px;
-        }
-    }
-
-    .logo {
-        position: absolute;
-        left: 50%;
-        top: 100px;
-        z-index: 1;
-
-        display: flex;
-        align-items: center;
-
-        transform: translate(-50%, -50%);
-        transition: top 0.4s ease;
-    }
-
-    .logo img {
-        display: block;
-        width: var(--logo-w);
-        height: auto;
-
-        transition: width 0.4s ease;
-    }
-
-    header.scrolled .logo {
-        top: 35px;
-    }
-
-    header.scrolled .logo img {
-        width: var(--logo-w-s);
-    }
-
-
-    /* BOTON HAMBURGUESA */
-
-    .menu-toggle {
-        position: relative;
-        z-index: 303;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: stretch;
-
-        width: 25px;
-        height: 20px;
-        padding: 0;
-
-        border: 1px solid transparent;
-        background: transparent;
-        cursor: pointer;
-
-        transition:
-            width 0.4s ease,
-            height 0.4s ease,
-            padding 0.4s ease,
-            background-color 0.4s ease,
-            border-color 0.4s ease;
-    }
-
-    .menu-toggle span {
-        position: relative;
-        z-index: 1;
-
-        display: block;
-        flex-shrink: 0;
-        width: 100%;
-        height: 2px;
-        min-height: 2px;
-
-        background-color: var(--color-texto);
-
-        transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-
-    header.scrolled .menu-toggle {
-        box-sizing: border-box;
-        width: var(--tb-w);
-        height: var(--tb-h);
-        padding: var(--tb-pad-y) var(--tb-pad-x);
-
-        border-color: var(--color-texto);
-        background-color: var(--color-fondo);
-    }
-
-    .menu-toggle::before {
-        content: "";
-
-        position: absolute;
-        inset: var(--tb-inset);
-
-        border: 1px solid var(--color-texto);
-        background-color: var(--color-menta);
-
-        opacity: 0;
-        transition: opacity 0.4s ease;
-    }
-
-    header.scrolled .menu-toggle::before {
-        opacity: 1;
-    }
-
-    .menu-toggle:hover::before,
-    .menu-toggle:focus-visible::before {
-        background-color: var(--color-salvia);
-    }
-
-
-    .menu-toggle.is-active span:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-    }
-
-    .menu-toggle.is-active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-toggle.is-active span:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
-    }
-
-
-    .floating-menu {
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-
-        transform: translateY(-12px);
-
-        transition:
-            opacity 0.3s ease,
-            visibility 0.3s ease,
-            transform 0.3s ease;
-    }
-
-    .floating-menu.is-open {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-
-        transform: translateY(0);
-    }
-
-
-    .carousel {
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1;
-
-        width: 100%;
-        height: max(100svh, 600px);
-    }
-
-    .carousel::after {
-        content: "";
-
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        z-index: 2;
-
-        width: 100%;
-        height: 55%;
-
-        background: linear-gradient(
-            to bottom,
-            transparent 0%,
-            rgb(217 235 214 / 0.5) 45%,
-            var(--color-menta) 100%
-        );
-
-        pointer-events: none;
-    }
-
-    .carousel-image {
-        opacity: 0;
-        transition: opacity 1.2s ease;
-    }
-
-    .carousel-image.active {
-        opacity: 1;
-    }
-
-
-    .hero-button {
-        border: 1px solid var(--color-texto);
-        background-color: var(--color-fondo);
-        color: var(--color-texto);
-    }
-
-    .hero-button > span:first-child {
-        border: 1px solid var(--color-texto);
-        background-color: var(--color-menta);
-
-        transition:
-            background-color 0.25s ease,
-            color 0.25s ease;
-    }
-
-    .hero-button .button-arrow {
-        transition: transform 0.25s ease;
-    }
-
-    .hero-button {
-        animation: botonEntrada 0.7s ease-out both;
-    }
-
-    .hero-button:nth-child(2) {
-        animation-delay: 0.12s;
-    }
-
-    .hero-button:nth-child(3) {
-        animation-delay: 0.24s;
-    }
-
-    .hero-button:hover > span:first-child,
-    .hero-button:focus-visible > span:first-child {
-        background-color: var(--color-salvia);
-        color: var(--color-fondo);
-    }
-
-    .hero-button:hover .button-arrow,
-    .hero-button:focus-visible .button-arrow {
-        transform: translate(2px, -50%);
-    }
-
-    .about-content {
-        opacity: 0;
-    }
-
-    .about-content.is-visible {
-        opacity: 1;
-        animation: aboutBounce 1s ease-out;
-    }
-
-
-    .js [data-reveal] {
-        opacity: 0;
-    }
-
-    .js [data-reveal].is-visible {
-        opacity: 1;
-        animation: revelarSubir 0.8s ease-out both;
-        animation-delay: var(--retraso, 0s);
-    }
-
-    .js [data-reveal="izquierda"].is-visible {
-        animation-name: revelarIzquierda;
-    }
-
-    .js [data-reveal="zoom"].is-visible {
-        animation-name: revelarZoom;
-    }
-
-    .press-item {
-        filter: grayscale(1);
-        opacity: 0.4;
-        cursor: pointer;
-
-        transition: opacity 0.25s ease;
-    }
-
-    .press-item:hover,
-    .press-item:focus-visible,
-    .press-item.active {
-        opacity: 1;
-    }
-
-    .press-preview-inner {
-        transition: opacity 0.2s ease;
-    }
-
-    .press-preview.is-changing .press-preview-inner {
-        opacity: 0;
-    }
-
-    .press-read span {
-        display: inline-block;
-        transition: transform 0.25s ease;
-    }
-
-    .press-read:hover span,
-    .press-read:focus-visible span {
-        transform: translate(2px, -2px);
+        .rotulo-producto { font-size: .8rem; }
+        .marco .emoji-respaldo { font-size: 4rem; }
     }
 }
 
-
-@keyframes aboutBounce {
-    0%   { opacity: 0; transform: translateY(80px); }
-    50%  { opacity: 1; transform: translateY(-18px); }
-    68%  { transform: translateY(8px); }
-    82%  { transform: translateY(-4px); }
-    100% { transform: translateY(0); }
+@keyframes respirar {
+    from { scale: 1; }
+    to   { scale: 1.1; }
 }
-
-
-@layer base {
-
-    html.dark {
-        color-scheme: dark;
-    }
-
-    .dark :focus-visible {
-        outline-color: var(--color-niebla);
-    }
-
-    .dark .floating-menu :focus-visible {
-        outline-color: var(--color-texto);
-    }
+@keyframes aparecer-titulo {
+    from { opacity: 0; letter-spacing: .35em; transform: translateY(20px); }
+    to   { opacity: 1; letter-spacing: .1em; transform: translateY(0); }
+}
+@keyframes destello {
+    from { transform: translateX(-120%); }
+    to   { transform: translateX(120%); }
+}
+@keyframes flotar {
+    0%, 100% { transform: translateY(0) rotate(-1deg) scale(1.05); }
+    50%      { transform: translateY(-6px) rotate(1deg) scale(1.07); }
 }
 
 @layer components {
 
-    .theme-toggle {
-        position: relative;
-        z-index: 303;
+    .marco-novedad .marco { --tam-img: 100%; }
 
-        display: grid;
-        place-items: center;
-
-        width: var(--tt-size);
-        height: var(--tt-size);
-        padding: 0;
-
-        border: 1px solid transparent;
-        background: transparent;
-        color: var(--color-texto);
-        cursor: pointer;
-
-        transition:
-            width 0.4s ease,
-            height 0.4s ease,
-            background-color 0.4s ease,
-            border-color 0.4s ease,
-            color 0.4s ease;
-    }
-
-    .theme-toggle svg {
-        position: relative;
-        z-index: 1;
-    }
-
-    header.scrolled .theme-toggle {
-        box-sizing: border-box;
-        width: var(--tb-w);
-        height: var(--tb-h);
-
-        border-color: var(--color-texto);
-        background-color: var(--color-fondo);
-    }
-
-    .theme-toggle::before {
+   
+    .marco-novedad .marco::before {
         content: "";
-
         position: absolute;
-        inset: var(--tb-inset);
-
-        border: 1px solid var(--color-texto);
-        background-color: var(--color-menta);
-
-        opacity: 0;
-        transition: opacity 0.4s ease;
+        inset: 0;
+        z-index: 2;
+        background: url("../media/img/marco\ novedades.webp") center / 100% 100% no-repeat;
+        pointer-events: none;
     }
 
-    header.scrolled .theme-toggle::before {
-        opacity: 1;
-    }
+  
+    .tarjeta:hover .marco-novedad .marco { box-shadow: none; }
+    
 
-    .theme-toggle:hover::before,
-    .theme-toggle:focus-visible::before {
+}
+
+
+@layer components {
+
+    .bloque-info::before {
+        content: "";
+        display: block;
+        width: 3rem;
+        height: 1px;
+        margin: 0 auto 1.25rem;
+        background: currentColor;
+        opacity: .6;
+    }
+    .bloque-info.aos-animate::before { animation: trazar .8s .4s ease both; }
+}
+
+@keyframes trazar {
+    from { width: 0; }
+    to   { width: 3rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bloque-info.aos-animate::before { animation: none; }
+}
+
+
+
+
+
+@layer components {
+
+   
+    .footer-botanico {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
         background-color: var(--color-salvia);
     }
-
-
-    /*MODO OSCURO  */
-
-    .dark .menu-toggle span {
-        background-color: var(--color-niebla);
+    .footer-botanico::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: url("../media/img/botanico.webp") center / cover no-repeat;
+        opacity: .25;
+        -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 30%);
+        mask-image: linear-gradient(to bottom, transparent 0%, #000 30%);
+        animation: deriva 30s ease-in-out infinite alternate;
     }
 
-    .dark .theme-toggle {
-        color: var(--color-niebla);
+   
+    .enlace-footer {
+        text-decoration: underline;
+        text-decoration-color: rgb(255 255 255 / .6);
+        text-underline-offset: 4px;
+        transition: text-underline-offset .25s ease, text-decoration-color .25s ease, color .25s ease;
     }
-
-    .dark header.scrolled .menu-toggle,
-    .dark header.scrolled .theme-toggle {
-        border-color: var(--color-niebla);
-        background-color: var(--color-noche);
-    }
-
-    .dark .menu-toggle::before,
-    .dark .theme-toggle::before {
-        border-color: var(--color-niebla);
-        background-color: var(--color-bosque);
-    }
-
-    .dark .menu-toggle:hover::before,
-    .dark .menu-toggle:focus-visible::before,
-    .dark .theme-toggle:hover::before,
-    .dark .theme-toggle:focus-visible::before {
-        background-color: var(--color-salvia);
-    }
-
-    .dark .carousel::after {
-        background: linear-gradient(
-            to bottom,
-            transparent 0%,
-            rgb(18 26 21 / 0.5) 45%,
-            var(--color-noche) 100%
-        );
-    }
-
-    .dark .carousel-image {
-        filter: brightness(0.85);
-    }
-
-    .dark .hero-button {
-        border-color: var(--color-niebla);
-        background-color: var(--color-noche);
-        color: var(--color-niebla);
-    }
-
-    .dark .hero-button > span:first-child {
-        border-color: var(--color-niebla);
-        background-color: var(--color-bosque);
-    }
-
-    .dark .hero-button:hover > span:first-child,
-    .dark .hero-button:focus-visible > span:first-child {
-        background-color: var(--color-salvia);
-        color: var(--color-fondo);
+    @media (hover: hover) {
+        .enlace-footer:hover {
+            text-decoration-color: var(--color-oro);
+            text-underline-offset: 7px;
+            color: var(--color-superficie);
+        }
     }
 }
 
 
-@keyframes revelarSubir {
-    from { opacity: 0; transform: translateY(28px); }
-    to   { opacity: 1; transform: translateY(0); }
+@keyframes deriva {
+    from { transform: scale(1); }
+    to   { transform: scale(1.08); }
 }
 
-@keyframes revelarIzquierda {
-    from { opacity: 0; transform: translateX(-32px); }
-    to   { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes revelarZoom {
-    from { opacity: 0; transform: scale(0.92); }
-    to   { opacity: 1; transform: scale(1); }
-}
-
-@keyframes botonEntrada {
-    from { opacity: 0; transform: translateY(18px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
 
 
 @media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-        animation: none !important;
-    }
-
-    .js [data-reveal] {
-        opacity: 1 !important;
-    }
+    .footer-botanico::before { animation: none; }
 }
+
