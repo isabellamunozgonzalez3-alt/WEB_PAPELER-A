@@ -15,6 +15,19 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link rel="stylesheet" href="css/styles.css">
 
+   <script>
+        (function () {
+            document.documentElement.classList.add("js");
+            try {
+                var guardado = localStorage.getItem("tema");
+                var sistema = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                if (guardado === "dark" || (!guardado && sistema)) {
+                    document.documentElement.classList.add("dark");
+                }
+            } catch (e) {}
+        })();
+    </script>
+
   <style type="text/tailwindcss">
     
     @custom-variant dark (&:where(.dark, .dark *));
@@ -36,281 +49,9 @@
 
 </head>
 
-<body class="font-texto bg-fondo text-texto">
+<body class="font-texto bg-fondo text-texto class="bg-menta font-texto text-texto dark:bg-noche dark:text-niebla">
 
-     <main>
-   
-    <section id="productos" aria-labelledby="titulo-productos">
-
-     
-
-      <div class="bg-fondo pt-10 sm:pt-10 sm:pb-14 text-center overflow-hidden">
-        
-        <h1 id="titulo-productos" class="titulo-banner relative isolate mx-auto mb-4 sm:mb-6">
-            <img src="media/img/ilustracion_1.webp" alt="Productos" class="mx-auto h-auto w-[min(100vw,50rem)] dark:invert">
-        </h1>
-
-      </div>
-
-
-    
-      <div class="mx-auto max-w-5xl px-8 pt-4 pb-16 sm:px-10 sm:pt-6 sm:pb-16">
-        <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-6 sm:mt-6 gap-x-6 gap-y-14 sm:gap-x-10">
-
-          <li data-aos="fade-up">
-            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
-              <figure>
-                <div class="marco bg-superficie"><img src="media/img/libros_cuero.webp" alt="Cuadernos de piel azul y marrón" loading="lazy"></div>
-                <figcaption class="rotulo-producto">Cuadernos de piel</figcaption>
-              </figure>
-            </a>
-          </li>
-
-          <li data-aos="fade-up" data-aos-delay="100">
-            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
-              <figure>
-                <div class="marco bg-superficie"><img src="media/img/tarjetas.png" alt="Tarjetas con ilustraciones científicas" loading="lazy"></div>
-                <figcaption class="rotulo-producto">Tarjetas</figcaption>
-              </figure>
-            </a>
-          </li>
-
-          <li data-aos="fade-up" data-aos-delay="200">
-            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
-              <figure>
-                <div class="marco bg-superficie"><img src="media/img/popup.webp" alt="Popup de un velero dentro de una botella" loading="lazy"></div>
-                <figcaption class="rotulo-producto">Popups</figcaption>
-              </figure>
-            </a>
-          </li>
-
-          <li data-aos="fade-up" data-aos-delay="300">
-            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
-              <figure>
-                <div class="marco bg-superficie"><img src="media/img/funda.webp" alt="Funda roja con grullas y cierre de botón" loading="lazy"></div>
-                <figcaption class="rotulo-producto">Fundas</figcaption>
-              </figure>
-            </a>
-          </li>
-
-          <li data-aos="fade-up">
-            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
-              <figure>
-                <div class="marco bg-superficie"><img src="media/img/lapices.webp" alt="Lápices y minas en cajas de colores"  loading="lazy"></div>
-                <figcaption class="rotulo-producto">Escritura</figcaption>
-              </figure>
-            </a>
-          </li>
-
-          <li data-aos="fade-up" data-aos-delay="100">
-            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
-              <figure>
-                <div class="marco bg-superficie"><img src="media/img/encendedor.webp" alt="Cajas de cerillas con un búho y flores" loading="lazy"></div>
-                <figcaption class="rotulo-producto">Cerillas</figcaption>
-              </figure>
-            </a>
-          </li>
-
-          <li data-aos="fade-up" data-aos-delay="200">
-            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
-              <figure>
-                <div class="marco bg-superficie"><img src="media/img/cuadernos.webp" alt="Cuadernos de colores con una abeja" loading="lazy"></div>
-                <figcaption class="rotulo-producto">Cuadernos</figcaption>
-              </figure>
-            </a>
-          </li>
-
-        </ul>
-      </div>
-    </section>
-    
-    
-    <section id="novedades" class="overflow-x-clip"  aria-labelledby="titulo-novedades">
-        <div class="mx-auto max-w-3xl px-8 sm:px-10 pt-24 pb-32 sm:pt-28 sm:pb-40">
-            
-            <h2 id="titulo-novedades" class="mx-auto text-center" data-aos="fade-down">
-                <img src="media/img/ilustracion_2.webp" alt="Novedades" class="mx-auto h-auto w-[min(65vw,32rem)] dark:invert">
-
-            </h2>
-            
-           <ul class="mt-14 sm:mt-20 grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-14 sm:gap-x-10">
-
-                <li data-aos="fade-up">
-                    <a href="#" class="tarjeta block focus-visible:outline-2  focus-visible:outline-acento">
-                        <figure>
-                            <div class="marco-novedad">
-                                <div class="marco"><img src="media/img/globo.webp" alt="Globos terráqueos" loading="lazy"></div>
-                            </div>
-                            <figcaption class="rotulo-producto" >Globos terráqueos</figcaption>
-                        </figure>
-
-                    </a>
-                </li>
-
-                 <li data-aos="fade-up" data-aos-delay="100">
-                    <a href="#" class="tarjeta block focus-visible:outline-2  focus-visible:outline-acento">
-                        <figure>
-                            <div class="marco-novedad">
-                                <div class="marco"><img src="media/img/cuentos.webp" alt="Cuentos" loading="lazy"></div>
-                            </div>
-                            <figcaption class="rotulo-producto" >Cuentos</figcaption>
-                        </figure>
-
-                    </a>
-                </li>
-
-                 <li data-aos="fade-up" data-aos-delay="200">
-                    <a href="#" class="tarjeta block focus-visible:outline-2  focus-visible:outline-acento">
-                        <figure>
-                            <div class="marco-novedad">
-                                <div class="marco"><img src="media/img/elefantes.webp" alt="Elefantes" loading="lazy"></div>
-                            </div>
-                            <figcaption class="rotulo-producto" >Cromos</figcaption>
-                        </figure>
-
-                    </a>
-                </li>
-
-                
-           </ul>
-
-          
-            
-        
-        </div>
-    </section>
-    
-    
-    <section id="horario" class="bg-salvia/25 text-salvia" aria-labelledby="titulo-horario">
-        <h2 id="titulo-horario" class="sr-only">Horario y ubicación</h2>
-        
-        <div class="mx-auto max-w-2xl px-6 py-20 sm:py-28 text-center space-y-16">
-            
-            <div class="bloque-info" data-aos="fade-up">
-                <h3 class="font-bold text-base sm:text-lg">Tienda Física:</h3>
-                <address class="mt-4 not-italic text-base sm:text-lg">C. del Noviciado, 9, Centro, 28015 Madrid</address>
-            </div>
-            
-            <div class="bloque-info" data-aos="fade-up" data-aos-delay="150">
-                <h3 class="font-bold text-base sm:text-lg">Horario de Atención:</h3>
-                <ul class="mt-4 space-y-1 text-base sm:text-lg">
-                    <li>Lunes a Viernes: <span class="whitespace-nowrap">11:00 – 14:00</span> / <span class="whitespace-nowrap">17:00 – 20:00</span></li>
-                    <li>Sábados: <span class="whitespace-nowrap">11:00 – 14:00</span></li>
-                    <li>Domingos: Cerrado</li>
-                </ul>
-            </div>
-            
-        </div>
-    </section>
-
-
-</main>
-
-    <footer class="footer-botanico text-white" aria-label="Pie de página">
-    <div class="mx-auto max-w-2xl px-6 py-20 sm:py-28 text-center flex flex-col items-center gap-14">
-
-     
-      <img src="media/img/bomagui.webp" alt="bomagui" class="h-12 w-auto" loading="lazy">
-
-   
-      <address class="not-italic text-sm sm:text-base leading-relaxed" data-aos="fade-up" data-aos-delay="100">
-        <p>Teléfono: <a href="tel:+34613012924" class="hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-fondo">613 012 924</a></p>
-        <p>Calle del Noviciado, 9, Madrid, 28015</p>
-      </address>
-
-     
-      <div class="text-sm sm:text-base" data-aos="fade-up" data-aos-delay="200">
-        <nav aria-label="Información legal">
-          <ul class="mt-2 list-disc list-inside space-y-1">
-            <li><a href="#" class="enlace-footer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-fondo">Aviso legal</a></li>
-            <li><a href="#" class="enlace-footer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-fondo">Política de Privacidad</a></li>
-            <li><a href="#" class="enlace-footer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-fondo">Política de Cookies</a></li>
-          </ul>
-        </nav>
-      </div>
-
-   
-      <div class="flex flex-col items-center gap-5 text-xs sm:text-sm" data-aos="fade-up" data-aos-delay="300">
-        <img src="media/img/logos.webp" alt="Plan de Recuperación, Transformación y Resiliencia" class="w-64 sm:w-96 h-auto max-w-full" loading="lazy">
-      </div>
-
-    </div>
-  </footer>
-    
-    
-     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-
-    
-    <script src="js/script.js"></script>
-</body>
-</html><!DOCTYPE html>
-<html lang="es" class="snap-y snap-mandatory">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Bomagui | Papelería artesanal</title>
-    <meta name="description" content="Bomagui, papelería artesanal, encuadernación y objetos especiales en Madrid.">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
-
-
-    <script>
-        (function () {
-            document.documentElement.classList.add("js");
-            try {
-                var guardado = localStorage.getItem("tema");
-                var sistema = window.matchMedia("(prefers-color-scheme: dark)").matches;
-                if (guardado === "dark" || (!guardado && sistema)) {
-                    document.documentElement.classList.add("dark");
-                }
-            } catch (e) {}
-        })();
-    </script>
-
-    <!-- TAILWIND -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-    <!-- SISTEMA DE DISEÑO -->
-    <style type="text/tailwindcss">
-
-        @custom-variant dark (&:where(.dark, .dark *));
-
-        @theme static {
-            
-            --color-menta: #D9EBD6;
-            --color-niebla: #e6eee6;
-            --color-salvia: #678e79;
-            --color-fondo: #ffffff;
-            --color-texto: #000000;
-            --color-superficie: #f3f0ec;
-
-            /* modo oscuro */
-            --color-noche: #121a15;
-            --color-bosque: #1c2820;
-
-            
-            --font-texto: "Lato", system-ui, sans-serif;
-            --font-titulo: Georgia, "Times New Roman", serif;
-        }
-    </style>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/styles.css">
-
-    <!-- JAVASCRIPT -->
-    <script src="js/script.js" defer></script>
-
-</head>
-
-<body class="bg-menta font-texto text-texto dark:bg-noche dark:text-niebla">
-
-    <!-- HEADER -->
-    <header>
+     <header>
 
         <a href="index.html" class="logo">
             <img src="media/logoL.svg" alt="Bomagui">
@@ -347,7 +88,7 @@
 
     </header>
 
-
+    <main>
     <!-- MENÚ FLOTANTE -->
     <nav
         class="floating-menu fixed text-texto top-[65px] right-[15px] z-[302] aspect-[330/350] w-[min(90vw,330px)] md:top-[75px] md:right-[25px] md:w-[330px]"
@@ -378,8 +119,6 @@
 
     </nav>
 
-
-    <main>
 
         <!-- PORTADA -->
         <section class="hero relative h-svh snap-start min-h-[600px] w-full bg-menta [clip-path:inset(0)] dark:bg-noche">
@@ -586,6 +325,213 @@
         </section>
 
     </main>
+
+   
+    <section id="productos" aria-labelledby="titulo-productos">
+
+     
+
+      <div class="bg-fondo pt-10 sm:pt-10 sm:pb-14 text-center overflow-hidden">
+        
+        <h1 id="titulo-productos" class="titulo-banner relative isolate mx-auto mb-4 sm:mb-6">
+            <img src="media/img/ilustracion_1.webp" alt="Productos" class="mx-auto h-auto w-[min(100vw,50rem)] dark:invert">
+        </h1>
+
+      </div>
+
+
+    
+      <div class="mx-auto max-w-5xl px-8 pt-4 pb-16 sm:px-10 sm:pt-6 sm:pb-16">
+        <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-6 sm:mt-6 gap-x-6 gap-y-14 sm:gap-x-10">
+
+          <li data-aos="fade-up">
+            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
+              <figure>
+                <div class="marco bg-superficie"><img src="media/img/libros_cuero.webp" alt="Cuadernos de piel azul y marrón" loading="lazy"></div>
+                <figcaption class="rotulo-producto">Cuadernos de piel</figcaption>
+              </figure>
+            </a>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="100">
+            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
+              <figure>
+                <div class="marco bg-superficie"><img src="media/img/tarjetas.png" alt="Tarjetas con ilustraciones científicas" loading="lazy"></div>
+                <figcaption class="rotulo-producto">Tarjetas</figcaption>
+              </figure>
+            </a>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="200">
+            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
+              <figure>
+                <div class="marco bg-superficie"><img src="media/img/popup.webp" alt="Popup de un velero dentro de una botella" loading="lazy"></div>
+                <figcaption class="rotulo-producto">Popups</figcaption>
+              </figure>
+            </a>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="300">
+            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
+              <figure>
+                <div class="marco bg-superficie"><img src="media/img/funda.webp" alt="Funda roja con grullas y cierre de botón" loading="lazy"></div>
+                <figcaption class="rotulo-producto">Fundas</figcaption>
+              </figure>
+            </a>
+          </li>
+
+          <li data-aos="fade-up">
+            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
+              <figure>
+                <div class="marco bg-superficie"><img src="media/img/lapices.webp" alt="Lápices y minas en cajas de colores"  loading="lazy"></div>
+                <figcaption class="rotulo-producto">Escritura</figcaption>
+              </figure>
+            </a>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="100">
+            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
+              <figure>
+                <div class="marco bg-superficie"><img src="media/img/encendedor.webp" alt="Cajas de cerillas con un búho y flores" loading="lazy"></div>
+                <figcaption class="rotulo-producto">Cerillas</figcaption>
+              </figure>
+            </a>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="200">
+            <a href="#" class="tarjeta block focus-visible:outline-2 focus-visible:outline-acento">
+              <figure>
+                <div class="marco bg-superficie"><img src="media/img/cuadernos.webp" alt="Cuadernos de colores con una abeja" loading="lazy"></div>
+                <figcaption class="rotulo-producto">Cuadernos</figcaption>
+              </figure>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+    
+    
+    <section id="novedades" class="overflow-x-clip"  aria-labelledby="titulo-novedades">
+        <div class="mx-auto max-w-3xl px-8 sm:px-10 pt-24 pb-32 sm:pt-28 sm:pb-40">
+            
+            <h2 id="titulo-novedades" class="mx-auto text-center" data-aos="fade-down">
+                <img src="media/img/ilustracion_2.webp" alt="Novedades" class="mx-auto h-auto w-[min(65vw,32rem)] dark:invert">
+
+            </h2>
+            
+           <ul class="mt-14 sm:mt-20 grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-14 sm:gap-x-10">
+
+                <li data-aos="fade-up">
+                    <a href="#" class="tarjeta block focus-visible:outline-2  focus-visible:outline-acento">
+                        <figure>
+                            <div class="marco-novedad">
+                                <div class="marco"><img src="media/img/globo.webp" alt="Globos terráqueos" loading="lazy"></div>
+                            </div>
+                            <figcaption class="rotulo-producto" >Globos terráqueos</figcaption>
+                        </figure>
+
+                    </a>
+                </li>
+
+                 <li data-aos="fade-up" data-aos-delay="100">
+                    <a href="#" class="tarjeta block focus-visible:outline-2  focus-visible:outline-acento">
+                        <figure>
+                            <div class="marco-novedad">
+                                <div class="marco"><img src="media/img/cuentos.webp" alt="Cuentos" loading="lazy"></div>
+                            </div>
+                            <figcaption class="rotulo-producto" >Cuentos</figcaption>
+                        </figure>
+
+                    </a>
+                </li>
+
+                 <li data-aos="fade-up" data-aos-delay="200">
+                    <a href="#" class="tarjeta block focus-visible:outline-2  focus-visible:outline-acento">
+                        <figure>
+                            <div class="marco-novedad">
+                                <div class="marco"><img src="media/img/elefantes.webp" alt="Elefantes" loading="lazy"></div>
+                            </div>
+                            <figcaption class="rotulo-producto" >Cromos</figcaption>
+                        </figure>
+
+                    </a>
+                </li>
+
+                
+           </ul>
+
+          
+            
+        
+        </div>
+    </section>
+    
+    
+    <section id="horario" class="bg-salvia/25 text-salvia" aria-labelledby="titulo-horario">
+        <h2 id="titulo-horario" class="sr-only">Horario y ubicación</h2>
+        
+        <div class="mx-auto max-w-2xl px-6 py-20 sm:py-28 text-center space-y-16">
+            
+            <div class="bloque-info" data-aos="fade-up">
+                <h3 class="font-bold text-base sm:text-lg">Tienda Física:</h3>
+                <address class="mt-4 not-italic text-base sm:text-lg">C. del Noviciado, 9, Centro, 28015 Madrid</address>
+            </div>
+            
+            <div class="bloque-info" data-aos="fade-up" data-aos-delay="150">
+                <h3 class="font-bold text-base sm:text-lg">Horario de Atención:</h3>
+                <ul class="mt-4 space-y-1 text-base sm:text-lg">
+                    <li>Lunes a Viernes: <span class="whitespace-nowrap">11:00 – 14:00</span> / <span class="whitespace-nowrap">17:00 – 20:00</span></li>
+                    <li>Sábados: <span class="whitespace-nowrap">11:00 – 14:00</span></li>
+                    <li>Domingos: Cerrado</li>
+                </ul>
+            </div>
+            
+        </div>
+    </section>
+
+
+</main>
+
+    <footer class="footer-botanico text-white" aria-label="Pie de página">
+    <div class="mx-auto max-w-2xl px-6 py-20 sm:py-28 text-center flex flex-col items-center gap-14">
+
+     
+      <img src="media/img/bomagui.webp" alt="bomagui" class="h-12 w-auto" loading="lazy">
+
+   
+      <address class="not-italic text-sm sm:text-base leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+        <p>Teléfono: <a href="tel:+34613012924" class="hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-fondo">613 012 924</a></p>
+        <p>Calle del Noviciado, 9, Madrid, 28015</p>
+      </address>
+
+     
+      <div class="text-sm sm:text-base" data-aos="fade-up" data-aos-delay="200">
+        <nav aria-label="Información legal">
+          <ul class="mt-2 list-disc list-inside space-y-1">
+            <li><a href="#" class="enlace-footer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-fondo">Aviso legal</a></li>
+            <li><a href="#" class="enlace-footer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-fondo">Política de Privacidad</a></li>
+            <li><a href="#" class="enlace-footer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-fondo">Política de Cookies</a></li>
+          </ul>
+        </nav>
+      </div>
+
+   
+      <div class="flex flex-col items-center gap-5 text-xs sm:text-sm" data-aos="fade-up" data-aos-delay="300">
+        <img src="media/img/logos.webp" alt="Plan de Recuperación, Transformación y Resiliencia" class="w-64 sm:w-96 h-auto max-w-full" loading="lazy">
+      </div>
+
+    </div>
+  </footer>
+    
+    
+     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
 
 
 </body>
