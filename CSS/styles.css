@@ -1,0 +1,202 @@
+@layer theme, base, components, utilities;
+
+
+
+@layer base {
+    :focus-visible { outline-offset: 4px; }
+    
+        .dark {
+        --color-fondo: #121a15;
+        --color-texto: #f2f5f2;
+        --color-superficie: #121a15;
+        --color-suave: #c9d3cc;
+        --color-borde: #2e3a33;
+        --color-niebla: #1d2a23;
+        --color-acento: #8fc0a5;
+        color-scheme: dark;
+    }
+}
+
+@layer components {
+  
+    .marco {
+        --tam-img: 78%;
+        position: relative;
+        aspect-ratio: 3 / 4;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        transition: box-shadow .35s, transform .35s;
+    }
+    .marco img {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: var(--tam-img);
+        height: var(--tam-img);
+        object-fit: contain;
+        filter: drop-shadow(0 8px 10px rgb(0 0 0 / .18));
+    }
+    
+
+  
+    .marco::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(110deg, transparent 35%, rgb(255 255 255 / .55) 50%, transparent 65%);
+        transform: translateX(-120%);
+        pointer-events: none;
+    }
+
+    .rotulo-producto {
+        position: relative;
+        display: inline-block;
+        margin-top: .8rem;
+        padding-bottom: .2rem;
+        font-size: .7rem;               
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        transition: color .25s;
+    }
+    
+
+   .tarjeta:active .marco { transform: scale(.97); }
+
+   
+    .tarjeta:focus-visible .marco { transform: translateY(-4px); }
+    .tarjeta:focus-visible .rotulo-producto { color: var(--color-acento); }
+
+    .tilt-activo { transition: transform .1s linear; }
+
+    @media (hover: hover) {
+        .tarjeta:hover .marco {
+            box-shadow: 0 14px 30px -10px rgb(31 58 82 / .45);
+            transform: translateY(-6px);
+        }
+        .tarjeta:hover .marco::after { animation: destello .9s ease; }
+        .tarjeta:hover .marco img { animation: flotar 2.4s ease-in-out infinite; }
+        .tarjeta:hover .rotulo-producto { color: var(--color-acento); }
+    
+    }
+
+    @media (min-width: 640px) {
+        .rotulo-producto { font-size: .8rem; }
+        .marco .emoji-respaldo { font-size: 4rem; }
+    }
+}
+
+@keyframes respirar {
+    from { scale: 1; }
+    to   { scale: 1.1; }
+}
+@keyframes aparecer-titulo {
+    from { opacity: 0; letter-spacing: .35em; transform: translateY(20px); }
+    to   { opacity: 1; letter-spacing: .1em; transform: translateY(0); }
+}
+@keyframes destello {
+    from { transform: translateX(-120%); }
+    to   { transform: translateX(120%); }
+}
+@keyframes flotar {
+    0%, 100% { transform: translateY(0) rotate(-1deg) scale(1.05); }
+    50%      { transform: translateY(-6px) rotate(1deg) scale(1.07); }
+}
+
+@layer components {
+
+    .marco-novedad .marco { --tam-img: 100%; }
+
+   
+    .marco-novedad .marco::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        background: url("../media/img/marco\ novedades.webp") center / 100% 100% no-repeat;
+        pointer-events: none;
+    }
+
+  
+    .tarjeta:hover .marco-novedad .marco { box-shadow: none; }
+    
+
+}
+
+
+@layer components {
+
+    .bloque-info::before {
+        content: "";
+        display: block;
+        width: 3rem;
+        height: 1px;
+        margin: 0 auto 1.25rem;
+        background: currentColor;
+        opacity: .6;
+    }
+    .bloque-info.aos-animate::before { animation: trazar .8s .4s ease both; }
+}
+
+@keyframes trazar {
+    from { width: 0; }
+    to   { width: 3rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bloque-info.aos-animate::before { animation: none; }
+}
+
+
+
+
+
+@layer components {
+
+   
+    .footer-botanico {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        background-color: var(--color-salvia);
+    }
+    .footer-botanico::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: url("../media/img/botanico.webp") center / cover no-repeat;
+        opacity: .25;
+        -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 30%);
+        mask-image: linear-gradient(to bottom, transparent 0%, #000 30%);
+        animation: deriva 30s ease-in-out infinite alternate;
+    }
+
+   
+    .enlace-footer {
+        text-decoration: underline;
+        text-decoration-color: rgb(255 255 255 / .6);
+        text-underline-offset: 4px;
+        transition: text-underline-offset .25s ease, text-decoration-color .25s ease, color .25s ease;
+    }
+    @media (hover: hover) {
+        .enlace-footer:hover {
+            text-decoration-color: var(--color-oro);
+            text-underline-offset: 7px;
+            color: var(--color-superficie);
+        }
+    }
+}
+
+
+@keyframes deriva {
+    from { transform: scale(1); }
+    to   { transform: scale(1.08); }
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+    .footer-botanico::before { animation: none; }
+}
+
