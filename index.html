@@ -6,17 +6,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Bomagui</title>
+    <title>Bomagui | Papelería artesanal</title>
+    <meta name="description" content="Bomagui, papelería artesanal, encuadernación y objetos especiales en Madrid.">
 
     <!-- TIPOGRAFÍA -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <!-- TAILWIND -->
+    <!-- TAILWIND CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <!-- COLORES -->
+    <!-- COLORES Y TIPOGRAFÍA -->
     <style type="text/tailwindcss">
         @theme static {
             --color-fondo: #ffffff;
@@ -33,20 +34,17 @@
         }
     </style>
 
-    <!-- CSS -->
+    <!-- CSS PROPIO -->
     <link rel="stylesheet" href="css/styles.css">
 
     <!-- JAVASCRIPT -->
     <script src="js/script.js" defer></script>
-</head>
 
+</head>
 
 <body>
 
-    <!-- ========================================
-         HEADER
-    ========================================= -->
-
+    <!-- HEADER -->
     <header>
 
         <a href="index.html" class="logo">
@@ -68,36 +66,27 @@
     </header>
 
 
-    <!-- ========================================
-         MENÚ FLOTANTE
-    ========================================= -->
-
+    <!-- MENÚ FLOTANTE -->
     <nav class="floating-menu" id="floating-menu">
 
-        <!-- MARCO SVG -->
         <img
             src="media/menufloat.svg"
             class="menu-frame"
             alt=""
-            aria-hidden="true"
-        >
+            aria-hidden="true">
 
         <div class="menu-content">
 
-            <!-- LOGO SIN ORNAMENTAR -->
             <a href="index.html" class="menu-logo">
                 <img src="media/logosin.svg" alt="Bomagui">
             </a>
 
-            <!-- ENLACES -->
             <div class="menu-links">
 
                 <a href="index.html">INICIO</a>
-
                 <a href="tienda.html">TIENDA</a>
-
                 <a href="#conocenos">CONÓCENOS</a>
-
+                <a href="#publicaciones">PUBLICACIONES</a>
                 <a href="encargos.html">ENCARGOS</a>
 
             </div>
@@ -107,39 +96,31 @@
     </nav>
 
 
-    <!-- ========================================
-         PORTADA
-    ========================================= -->
-
     <main>
 
+        <!-- PORTADA -->
         <section class="hero">
 
-            <!-- CARRUSEL -->
             <div class="carousel">
 
                 <img
                     src="media/port1.jpg"
                     class="carousel-image active"
-                    alt="Imagen de portada de Bomagui"
-                >
+                    alt="Imagen de portada de Bomagui">
 
                 <img
                     src="media/port2.jpg"
                     class="carousel-image"
-                    alt="Productos de papelería de Bomagui"
-                >
+                    alt="Productos de papelería de Bomagui">
 
                 <img
                     src="media/port3.jpg"
                     class="carousel-image"
-                    alt="Selección de productos de Bomagui"
-                >
+                    alt="Selección de productos de Bomagui">
 
             </div>
 
 
-            <!-- BOTONES -->
             <div class="hero-buttons">
 
                 <a href="tienda.html" class="hero-button">
@@ -162,19 +143,18 @@
         </section>
 
 
-        <!-- ========================================
-             CONÓCENOS
-        ========================================= -->
-
+        <!-- CONÓCENOS -->
         <section class="about-section" id="conocenos">
 
             <a
                 href="#conocenos-contenido"
                 class="section-tab"
-                aria-label="Bajar a Conócenos"
-            >
+                aria-label="Bajar a Conócenos">
+
                 <span>↓</span>
+
             </a>
+
 
             <div class="about-content" id="conocenos-contenido">
 
@@ -186,8 +166,7 @@
                         src="media/marco1.svg"
                         class="frame-decoration"
                         alt=""
-                        aria-hidden="true"
-                    >
+                        aria-hidden="true">
 
                     <p>
                         En Bomagui celebramos el papel bien hecho:
@@ -210,16 +189,123 @@
 
         </section>
 
+
+        <!-- PUBLICACIONES -->
+        <section class="press-section" id="publicaciones">
+
+            <div class="press-heading">
+
+                <p>BOMAGUI EN LOS MEDIOS</p>
+
+                <h2>Han hablado de nosotros</h2>
+
+            </div>
+
+
+            <div class="press-layout">
+
+                <!-- LISTADO DE PUBLICACIONES -->
+                <div class="press-list">
+
+                    <button
+                        class="press-item active"
+                        data-title="Abre en Madrid la tienda para los amantes de la papelería"
+                        data-source="Condé Nast Traveler · 2021"
+                        data-excerpt="Una papelería que recupera el encanto de los objetos de siempre, poniendo en valor la artesanía, la calidad y los pequeños detalles."
+                        data-url="https://www.traveler.es/experiencias/articulos/bomagui-madrid-nueva-papeleria-donde-esta/21339">
+
+                        <span>01</span>
+                        <span>CONDÉ NAST TRAVELER</span>
+                        <span class="press-arrow">↗</span>
+
+                    </button>
+
+
+                    <button
+                        class="press-item"
+                        data-title="Bomagui: la papelería que recupera el encanto de lo artesanal"
+                        data-source="El Generacional · 2023"
+                        data-excerpt="Un espacio dedicado a la papelería artesanal, los productos personalizados y la nostalgia."
+                        data-url="https://elgeneracionalpost.com/cultura/2023/0718/99374/bomagui-papeleria-artesanal-regalos-madrid.html">
+
+                        <span>02</span>
+                        <span>EL GENERACIONAL</span>
+                        <span class="press-arrow">↗</span>
+
+                    </button>
+
+
+                    <button
+                        class="press-item"
+                        data-title="Bomagui"
+                        data-source="Time Out Madrid · 2025"
+                        data-excerpt="Time Out destaca el carácter retro de la tienda y su combinación de encuadernación artesanal y marcas cuidadosamente seleccionadas."
+                        data-url="https://www.timeout.es/madrid/es/tiendas/bomagui">
+
+                        <span>03</span>
+                        <span>TIME OUT MADRID</span>
+                        <span class="press-arrow">↗</span>
+
+                    </button>
+
+
+                    <button
+                        class="press-item"
+                        data-title="Preciosa papelería en Conde Duque"
+                        data-source="Yosílosé · 2023"
+                        data-excerpt="Una visita a Bomagui y a su colección de agendas, álbumes, cuadernos, papeles y objetos especiales."
+                        data-url="https://www.yosilose.com/recomendaciones/q/bomagui/">
+
+                        <span>04</span>
+                        <span>YOSÍLOSÉ</span>
+                        <span class="press-arrow">↗</span>
+
+                    </button>
+
+                </div>
+
+
+                <!-- VISTA PREVIA DEL ARTÍCULO -->
+                <div class="press-preview">
+
+                    <span class="press-source">
+                        CONDÉ NAST TRAVELER · 2021
+                    </span>
+
+                    <h3>
+                        Abre en Madrid la tienda para los amantes de la papelería
+                    </h3>
+
+                    <p>
+                        Una papelería que recupera el encanto de los objetos
+                        de siempre, poniendo en valor la artesanía, la calidad
+                        y los pequeños detalles.
+                    </p>
+
+                    <a
+                        class="press-read"
+                        href="https://www.traveler.es/experiencias/articulos/bomagui-madrid-nueva-papeleria-donde-esta/21339"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        LEER ARTÍCULO ↗
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
     </main>
 
 
-    <!-- ========================================
-         FOOTER
-    ========================================= -->
-
+    <!-- FOOTER -->
     <footer id="contacto">
+
     </footer>
 
-</body>
 
+</body>
 </html>
