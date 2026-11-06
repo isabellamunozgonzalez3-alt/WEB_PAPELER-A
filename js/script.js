@@ -1,7 +1,4 @@
 
-/* ========================================
-   1. LOGO AL HACER SCROLL
-======================================== */
 
 const header = document.querySelector("header");
 
@@ -14,9 +11,7 @@ window.addEventListener("scroll", function () {
 });
 
 
-/* ========================================
-   2. CARRUSEL DE IMÁGENES
-======================================== */
+// CARRUSEL
 
 const images = document.querySelectorAll(".carousel-image");
 
@@ -37,9 +32,6 @@ if (images.length > 1) {
 }
 
 
-/* ========================================
-   3. ANIMACIÓN DE ENTRADA DE CONÓCENOS
-======================================== */
 
 const aboutContent = document.querySelector(".about-content");
 
@@ -66,16 +58,12 @@ if (aboutContent) {
 }
 
 
-/* ========================================
-   4. MENÚ FLOTANTE
-======================================== */
 
 const menuToggle = document.querySelector(".menu-toggle");
 const floatingMenu = document.querySelector(".floating-menu");
 
 if (menuToggle && floatingMenu) {
 
-    // ABRIR MENÚ
 
     function openMenu() {
 
@@ -157,4 +145,107 @@ if (menuToggle && floatingMenu) {
 
     });
 
+}
+
+
+const pressItems = document.querySelectorAll(".press-item");
+const pressPreview = document.querySelector(".press-preview");
+
+if (pressItems.length && pressPreview) {
+
+    const previewSource = pressPreview.querySelector(".press-source");
+    const previewQuote = pressPreview.querySelector(".press-quote");
+    const previewText = pressPreview.querySelector(".press-text");
+    const previewLink = pressPreview.querySelector(".press-read");
+
+    pressItems.forEach(item => {
+
+        item.addEventListener("click", function () {
+
+            if (item.classList.contains("active")) return;
+
+            pressItems.forEach(i => i.classList.remove("active"));
+            item.classList.add("active");
+
+            pressPreview.classList.add("is-changing");
+
+            setTimeout(function () {
+                previewSource.textContent = item.dataset.source;
+                previewQuote.textContent = item.dataset.quote;
+                previewText.textContent = item.dataset.excerpt;
+                previewLink.href = item.dataset.url;
+
+                pressPreview.classList.remove("is-changing");
+            }, 200);
+
+        });
+
+    });
+}
+
+
+const revealItems = document.querySelectorAll("[data-reveal]");
+
+if (revealItems.length) {
+
+    if (!("IntersectionObserver" in window)) {
+
+        revealItems.forEach(item => item.classList.add("is-visible"));
+
+    } else {
+
+        const revealObserver = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("is-visible");
+
+                    revealObserver.unobserve(entry.target);
+                }
+
+            });
+
+        }, {
+            threshold: 0.2
+        });
+
+        revealItems.forEach(item => revealObserver.observe(item));
+    }
+}
+
+
+// MODO OSCURO
+
+const themeToggle = document.querySelector(".theme-toggle");
+
+if (themeToggle) {
+
+    const root = document.documentElement;
+
+    function updateThemeButton() {
+
+        const isDark = root.classList.contains("dark");
+
+        themeToggle.setAttribute("aria-pressed", String(isDark));
+
+        themeToggle.setAttribute(
+            "aria-label",
+            isDark ? "Activar modo claro" : "Activar modo oscuro"
+        );
+    }
+
+    updateThemeButton();
+
+    themeToggle.addEventListener("click", function () {
+
+        const isDark = root.classList.toggle("dark");
+
+        try {
+            localStorage.setItem("tema", isDark ? "dark" : "light");
+        } catch (error) {}
+
+        updateThemeButton();
+    });
 }
