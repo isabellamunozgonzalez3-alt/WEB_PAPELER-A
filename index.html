@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bomagui</title>
+
+    <!-- TIPOGRAFÍA -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- TAILWIND -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- COLORES -->
+    <style type="text/tailwindcss">
+        @theme static {
+            --color-fondo: #ffffff;
+            --color-texto: #000000;
+            --color-niebla: #e6eee6;
+            --color-salvia: #678e79;
+            --color-acento: #678e79;
+            --color-superficie: #f3f0ec;
+            --color-suave: #000000;
+            --color-borde: #e6eee6;
+            --color-oro: #e6eee6;
+            --color-damasco: #678e79;
+            --font-texto: "Lato", system-ui, sans-serif;
+        }
+    </style>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- JAVASCRIPT -->
+    <script src="js/script.js" defer></script>
+</head>
+
+
+<body>
+
+    <!-- ========================================
+         HEADER
+    ========================================= -->
+
+    <header>
+
+        <a href="index.html" class="logo">
+            <img src="media/logoL.svg" alt="Bomagui">
+        </a>
+
+        <button
+            class="menu-toggle"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="floating-menu">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </header>
+
+
+    <!-- ========================================
+         MENÚ FLOTANTE
+    ========================================= -->
+
+    <nav class="floating-menu" id="floating-menu">
+
+        <!-- MARCO SVG -->
+        <img
+            src="media/menufloat.svg"
+            class="menu-frame"
+            alt=""
+            aria-hidden="true"
+        >
+
+        <div class="menu-content">
+
+            <!-- LOGO SIN ORNAMENTAR -->
+            <a href="index.html" class="menu-logo">
+                <img src="media/logosin.svg" alt="Bomagui">
+            </a>
+
+            <!-- ENLACES -->
+            <div class="menu-links">
+
+                <a href="index.html">INICIO</a>
+
+                <a href="tienda.html">TIENDA</a>
+
+                <a href="#conocenos">CONÓCENOS</a>
+
+                <a href="encargos.html">ENCARGOS</a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ========================================
+         PORTADA
+    ========================================= -->
+
+    <main>
+
+        <section class="hero">
+
+            <!-- CARRUSEL -->
+            <div class="carousel">
+
+                <img
+                    src="media/port1.jpg"
+                    class="carousel-image active"
+                    alt="Imagen de portada de Bomagui"
+                >
+
+                <img
+                    src="media/port2.jpg"
+                    class="carousel-image"
+                    alt="Productos de papelería de Bomagui"
+                >
+
+                <img
+                    src="media/port3.jpg"
+                    class="carousel-image"
+                    alt="Selección de productos de Bomagui"
+                >
+
+            </div>
+
+
+            <!-- BOTONES -->
+            <div class="hero-buttons">
+
+                <a href="tienda.html" class="hero-button">
+                    <span>TIENDA</span>
+                    <span class="button-arrow">↗</span>
+                </a>
+
+                <a href="encargos.html" class="hero-button">
+                    <span>ENCARGOS</span>
+                    <span class="button-arrow">↗</span>
+                </a>
+
+                <a href="#conocenos" class="hero-button">
+                    <span>CONÓCENOS</span>
+                    <span class="button-arrow">↗</span>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             CONÓCENOS
+        ========================================= -->
+
+        <section class="about-section" id="conocenos">
+
+            <a
+                href="#conocenos-contenido"
+                class="section-tab"
+                aria-label="Bajar a Conócenos"
+            >
+                <span>↓</span>
+            </a>
+
+            <div class="about-content" id="conocenos-contenido">
+
+                <h2 class="about-title">CONÓCENOS</h2>
+
+                <div class="about-frame">
+
+                    <img
+                        src="media/marco1.svg"
+                        class="frame-decoration"
+                        alt=""
+                        aria-hidden="true"
+                    >
+
+                    <p>
+                        En Bomagui celebramos el papel bien hecho:
+                        álbumes, libretas y cajas encuadernadas a
+                        mano, papeles marmoleados y una selección
+                        muy cuidada de papelería de aquí y de Europa.
+                        Somos un espacio de barrio —entre Malasaña
+                        y Conde Duque— donde encontrar regalos
+                        especiales, plumas para caligrafía, postales
+                        únicas y piezas que duran muchos años.
+                        Si buscas un álbum de fotos a medida, un libro
+                        de firmas o invitaciones con papel artesanal, te
+                        ayudamos a elegir materiales y acabados para
+                        que cada detalle tenga sentido.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ========================================
+         FOOTER
+    ========================================= -->
+
+    <footer id="contacto">
+    </footer>
+
+</body>
+
+</html>
