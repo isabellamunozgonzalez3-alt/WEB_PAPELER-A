@@ -6,9 +6,9 @@
     :focus-visible { outline-offset: 4px; }
     
         .dark {
-        --color-fondo: #121815;
+        --color-fondo: #121a15;
         --color-texto: #f2f5f2;
-        --color-superficie: #1d2420;
+        --color-superficie: #121a15;
         --color-suave: #c9d3cc;
         --color-borde: #2e3a33;
         --color-niebla: #1d2a23;
@@ -120,7 +120,7 @@
   
     .tarjeta:hover .marco-novedad .marco { box-shadow: none; }
     
-    .dark .marco-novedad .marco::before { filter: invert(1); }
+
 }
 
 
