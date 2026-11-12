@@ -1,9 +1,6 @@
 @layer theme, base, components, utilities;
 
 
-/* ==========================================================
-   BASE
-   ========================================================== */
 
 @layer base {
 
@@ -26,10 +23,6 @@
     }
 }
 
-
-/* ==========================================================
-   TARJETAS DE PRODUCTO
-   ========================================================== */
 
 @layer components {
 
@@ -120,9 +113,6 @@
 }
 
 
-/* ==========================================================
-   HORARIO
-   ========================================================== */
 
 @layer components {
 
@@ -145,9 +135,7 @@
 }
 
 
-/* ==========================================================
-   FOOTER
-   ========================================================== */
+
 
 @layer components {
 
@@ -411,6 +399,27 @@
     }
 }
 
+.dark header:not(.scrolled) .menu-toggle span {
+    background-color: #000;
+}
+
+.dark header:not(.scrolled) .theme-toggle {
+    color: #000;
+}
+
+.dark .floating-menu > img:first-child {
+    filter: invert(1);
+}
+
+.dark .floating-menu a img {
+    filter: invert(1);
+}
+
+.dark .floating-menu a:hover,
+.dark .floating-menu a:focus-visible {
+    background-color: var(--color-salvia);
+    color: var(--color-fondo);
+}
 
 @layer components {
 
